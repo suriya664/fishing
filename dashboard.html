@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Dashboard | OceanBound</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/nautical.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet' />
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0284c7',
+                            dark: '#0369a1',
+                        },
+                        secondary: {
+                            DEFAULT: '#fb923c',
+                            dark: '#ea580c',
+                        },
+                        accent: '#1e3a8a',
+                        neutral: {
+                            sandy: '#fef3c7',
+                            driftwood: '#78716c',
+                        },
+                        aqua: '#14b8a6',
+                        coral: '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-900 flex min-h-screen">
+    <!-- Ambient Sea Decorations -->
+    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboard-sidebar"
+        class="w-72 bg-accent text-white flex flex-col fixed inset-y-0 left-0 z-50 transition-transform lg:translate-x-0 -translate-x-full">
+        <!-- Logo at top of sidebar -->
+        <div class="p-6 border-b border-white/10">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="bg-secondary p-3 rounded-full transform group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-anchor text-3xl"></i>
+                </div>
+                <span class="text-2xl font-bold tracking-tighter">OCEAN<span class="text-secondary">BOUND</span></span>
+            </a>
+        </div>
+
+        <nav class="flex-grow p-6 space-y-2 overflow-y-auto">
+            <a href="#" class="flex items-center gap-4 p-4 bg-white/10 rounded-xl font-bold transition-all">
+                <i class="fas fa-th-large w-6"></i> Overview
+            </a>
+            <a href="#"
+                class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl font-medium text-blue-200 hover:text-white transition-all">
+                <i class="fas fa-calendar-alt w-6"></i> Book a Trip
+            </a>
+            <a href="#"
+                class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl font-medium text-blue-200 hover:text-white transition-all">
+                <i class="fas fa-history w-6"></i> My Reservations
+            </a>
+            <a href="#"
+                class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl font-medium text-blue-200 hover:text-white transition-all">
+                <i class="fas fa-fish w-6"></i> Fish Log
+            </a>
+            <a href="#"
+                class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl font-medium text-blue-200 hover:text-white transition-all">
+                <i class="fas fa-cloud-sun w-6"></i> Weather & Tides
+            </a>
+            <a href="#"
+                class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl font-medium text-blue-200 hover:text-white transition-all">
+                <i class="fas fa-envelope w-6"></i> Messages
+            </a>
+            <a href="#"
+                class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl font-medium text-blue-200 hover:text-white transition-all">
+                <i class="fas fa-cog w-6"></i> Settings
+            </a>
+        </nav>
+
+        <!-- User Quick Profile -->
+        <div class="p-6 border-t border-white/10 bg-black/10">
+            <div class="flex items-center gap-3 mb-6">
+                <img src="https://i.pravatar.cc/100?img=1" class="w-12 h-12 rounded-full border-2 border-secondary">
+                <div>
+                    <p class="font-bold text-sm">Mike Trout</p>
+                    <p class="text-[10px] uppercase font-bold text-blue-300">Master Angler</p>
+                </div>
+            </div>
+            <a href="index.html" class="flex items-center gap-3 text-red-400 hover:text-red-300 font-bold text-sm">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow lg:ml-72 bg-slate-50 dark:bg-slate-900 transition-colors duration-300 flex flex-col pt-20">
+        <!-- Dashboard Widgets Grid -->
+        <div class="p-8 space-y-8">
+            <!-- Welcome Banner -->
+            <div class="bg-accent rounded-[2rem] p-10 text-white relative overflow-hidden shadow-2xl">
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div>
+                        <h1 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Welcome back, Mike!</h1>
+                        <p class="text-blue-200 max-w-lg">Your next expedition to the Gulf Stream is set for January
+                            28th. The weather outlook is looking prime for Sailfish.</p>
+                        <button
+                            class="mt-8 bg-secondary hover:bg-secondary-dark text-white font-bold px-8 py-3 rounded-xl transition-all shadow-xl shadow-orange-500/20">PREPARE
+                            GEAR</button>
+                    </div>
+                </div>
+                <i
+                    class="fas fa-fish absolute top-[-50px] right-[-50px] text-[300px] text-white/5 rotate-[-45deg] pointer-events-none"></i>
+            </div>
+
+            <!-- Booking Section Grid -->
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                <div class="xl:col-span-2 space-y-8">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-[2rem] p-8 shadow-xl border border-slate-100 dark:border-slate-700">
+                        <div id="calendar" class="min-h-[600px] dark:text-white"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-sky-500 rounded-[2rem] p-8 text-white shadow-xl relative overflow-hidden">
+                        <div id="tide-chart" class="mt-8 relative z-10">
+                            <canvas id="tideChartCanvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek'
+                },
+                events: [
+                    { title: 'Capt. John', start: '2026-01-25', backgroundColor: '#14b8a6' },
+                    { title: 'Capt. Mike', start: '2026-01-25', backgroundColor: '#fbbf24' },
+                    { title: 'Weather Hold', start: '2026-01-26', backgroundColor: '#ef4444', display: 'background' },
+                    { title: 'Capt. Sarah', start: '2026-01-28', backgroundColor: '#14b8a6' }
+                ],
+                height: 'auto'
+            });
+            calendar.render();
+
+            const ctx = document.getElementById('tideChartCanvas').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['AM', '', '', 'PM', '', ''],
+                    datasets: [{
+                        label: 'Tide Height (ft)',
+                        data: [1.2, 3.4, 2.1, 4.2, 5.1, 3.8],
+                        borderColor: 'white',
+                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

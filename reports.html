@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishing Reports | OceanBound Charters</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/nautical.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0284c7',
+                            dark: '#0369a1',
+                        },
+                        secondary: {
+                            DEFAULT: '#fb923c',
+                            dark: '#ea580c',
+                        },
+                        accent: '#1e3a8a',
+                        neutral: {
+                            sandy: '#fef3c7',
+                            driftwood: '#78716c',
+                        },
+                        aqua: '#14b8a6',
+                        coral: '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-900">
+    <!-- Ambient Sea Decorations -->
+    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
+
+    <header id="main-header"></header>
+
+    <main class="pt-32 pb-24">
+        <div class="container mx-auto px-4">
+            <h1 class="text-6xl text-center text-accent dark:text-white mb-8 uppercase">FISHING LOG & REPORTS</h1>
+            <p class="text-center text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto mb-20 leading-relaxed">
+                Stay informed with real-time fishing reports from our captains. Learn what's biting, where the action
+                is, and plan your perfect trip based on current conditions. Updated daily with fresh intel from the
+                water.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Report Cards -->
+                <div class="lg:col-span-2 space-y-12">
+                    <!-- Report 1 -->
+                    <article
+                        class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700">
+                        <div class="p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/100?img=12"
+                                    class="w-14 h-14 rounded-full border-2 border-primary">
+                                <div>
+                                    <h3 class="font-bold text-xl dark:text-white">Capt. John's Morning Report</h3>
+                                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">January 25,
+                                        2026 • Offshore - The Ledge</div>
+                                </div>
+                            </div>
+                            <h2 class="text-3xl text-accent dark:text-white mb-4">SAILFISH ARE RUNNING HOT!</h2>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-8">
+                                "Incredible morning today at 'The Ledge'. We saw massive schools of baitfish and the
+                                Sailfish were right behind them. Hooked into 4 today, landed 3. The bite is definitely
+                                peak right now between 120-150ft. Water temp is perfect at 74°F and the current is
+                                moving nicely. If you've been thinking about a Sailfish trip, NOW is the time! Kite
+                                fishing with live goggle eyes is producing the best results."
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1000"
+                                class="w-full h-[400px] object-cover rounded-2xl mb-8">
+                            <div class="grid grid-cols-3 gap-4 border-t dark:border-slate-700 pt-8">
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Catches</span>
+                                    <span class="font-bold dark:text-white">3 Sailfish, 1 Mahi</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Bait
+                                        Used</span>
+                                    <span class="font-bold dark:text-white">Live Goggle Eyes</span>
+                                </div>
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Weather</span>
+                                    <span class="font-bold dark:text-white">Calm / Sunny</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Report 2 -->
+                    <article
+                        class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700">
+                        <div class="p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/100?img=47"
+                                    class="w-14 h-14 rounded-full border-2 border-aqua">
+                                <div>
+                                    <h3 class="font-bold text-xl dark:text-white">Capt. Sarah's Inshore Update</h3>
+                                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">January 24,
+                                        2026 • Inshore - Mangroves</div>
+                                </div>
+                            </div>
+                            <h2 class="text-3xl text-accent dark:text-white mb-4">SNOOK BITE IS ON FIRE</h2>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-8">
+                                "What a day in the mangroves! The Snook are stacked up around the docks and absolutely
+                                crushing live pilchards. We landed 12 keeper-sized fish and released probably 20 more.
+                                The incoming tide in the morning is producing the best action. Water clarity is
+                                excellent and the fish are aggressive. Also picked up some nice Redfish and a couple of
+                                Trout. Perfect conditions for families and beginners - the fish are cooperating!"
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 border-t dark:border-slate-700 pt-8">
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Catches</span>
+                                    <span class="font-bold dark:text-white">12 Snook, 5 Reds</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Bait
+                                        Used</span>
+                                    <span class="font-bold dark:text-white">Live Pilchards</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Tide</span>
+                                    <span class="font-bold dark:text-white">Incoming AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Report 3 -->
+                    <article
+                        class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700">
+                        <div class="p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/100?img=33"
+                                    class="w-14 h-14 rounded-full border-2 border-secondary">
+                                <div>
+                                    <h3 class="font-bold text-xl dark:text-white">Capt. Mike's Tournament Report</h3>
+                                    <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">January 23,
+                                        2026 • Offshore - Deep Drop</div>
+                                </div>
+                            </div>
+                            <h2 class="text-3xl text-accent dark:text-white mb-4">WAHOO SEASON IN FULL SWING</h2>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-8">
+                                "High-speed trolling is producing trophy Wahoo right now. Caught a beautiful 65-pounder
+                                this morning along with several in the 40lb range. The fish are holding in 200-300ft of
+                                water along the reef edge. Blue/silver lures trolled at 12-15 knots are the ticket. Also
+                                picked up some nice Kingfish and a bonus Blackfin Tuna. Water is crystal clear and the
+                                bite window is early morning - first light to 10am. Don't miss this bite!"
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 border-t dark:border-slate-700 pt-8">
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Catches</span>
+                                    <span class="font-bold dark:text-white">4 Wahoo, 3 Kings</span>
+                                </div>
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Technique</span>
+                                    <span class="font-bold dark:text-white">High-Speed Troll</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Depth</span>
+                                    <span class="font-bold dark:text-white">200-300ft</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-8">
+                    <!-- Search/Filter -->
+                    <div
+                        class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700">
+                        <h3 class="text-xl font-bold text-accent dark:text-white uppercase mb-6">Search Reports</h3>
+                        <div class="space-y-4">
+                            <select
+                                class="w-full bg-slate-50 dark:bg-slate-900 border-none px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary dark:text-white">
+                                <option>All Captains</option>
+                                <option>Capt. John</option>
+                                <option>Capt. Sarah</option>
+                                <option>Capt. Mike</option>
+                            </select>
+                            <select
+                                class="w-full bg-slate-50 dark:bg-slate-900 border-none px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary dark:text-white">
+                                <option>All Species</option>
+                                <option>Sailfish</option>
+                                <option>Snook</option>
+                                <option>Mahi-Mahi</option>
+                                <option>Wahoo</option>
+                                <option>Tarpon</option>
+                            </select>
+                            <select
+                                class="w-full bg-slate-50 dark:bg-slate-900 border-none px-4 py-3 rounded-xl focus:ring-2 focus:ring-primary dark:text-white">
+                                <option>All Locations</option>
+                                <option>Offshore</option>
+                                <option>Inshore</option>
+                                <option>Gulf Stream</option>
+                            </select>
+                            <button
+                                class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg hover:bg-primary-dark transition-colors">FILTER
+                                RESULTS</button>
+                        </div>
+                    </div>
+
+                    <!-- Current Conditions -->
+                    <div class="bg-gradient-to-br from-primary to-accent text-white p-8 rounded-3xl shadow-xl">
+                        <h3 class="text-xl font-bold mb-6 uppercase">Current Conditions</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between pb-4 border-b border-white/20">
+                                <span class="text-blue-200 text-sm font-bold uppercase">Water Temp</span>
+                                <span class="text-2xl font-bold">74°F</span>
+                            </div>
+                            <div class="flex items-center justify-between pb-4 border-b border-white/20">
+                                <span class="text-blue-200 text-sm font-bold uppercase">Wind</span>
+                                <span class="text-2xl font-bold">SE 10kt</span>
+                            </div>
+                            <div class="flex items-center justify-between pb-4 border-b border-white/20">
+                                <span class="text-blue-200 text-sm font-bold uppercase">Seas</span>
+                                <span class="text-2xl font-bold">2-3ft</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-200 text-sm font-bold uppercase">Visibility</span>
+                                <span class="text-2xl font-bold">Excellent</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-white/20">
+                            <p class="text-sm text-blue-100">
+                                <strong>Forecast:</strong> Perfect fishing conditions expected through the weekend.
+                                Light winds and calm seas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hot Spots -->
+                    <div
+                        class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700">
+                        <h3 class="text-xl font-bold text-accent dark:text-white uppercase mb-6">Hot Spots This Week
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-fire text-secondary text-xl mt-1"></i>
+                                <div>
+                                    <p class="font-bold dark:text-white">The Ledge</p>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Sailfish, Mahi • 120-150ft</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-fire text-secondary text-xl mt-1"></i>
+                                <div>
+                                    <p class="font-bold dark:text-white">Jupiter Inlet</p>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Snook, Tarpon • Docks</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-fire text-secondary text-xl mt-1"></i>
+                                <div>
+                                    <p class="font-bold dark:text-white">Reef Edge</p>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Wahoo, Kings • 200-300ft</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Signup -->
+                    <div class="bg-secondary/10 dark:bg-secondary/20 p-8 rounded-3xl border-2 border-secondary/30">
+                        <h3 class="text-xl font-bold text-accent dark:text-white mb-4">Get Daily Reports</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                            Subscribe to receive fishing reports and conditions directly in your inbox every morning.
+                        </p>
+                        <input type="email" placeholder="your@email.com"
+                            class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-4 py-3 rounded-xl mb-3 focus:ring-2 focus:ring-secondary focus:outline-none dark:text-white">
+                        <button
+                            class="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-3 rounded-xl transition-colors">
+                            SUBSCRIBE
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-20 text-center bg-accent text-white rounded-3xl p-12 shadow-2xl">
+                <h2 class="text-4xl font-bold mb-4">READY TO GET IN ON THE ACTION?</h2>
+                <p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+                    The fish are biting and conditions are perfect. Book your charter now and experience the best
+                    fishing Jupiter has to offer!
+                </p>
+                <a href="dashboard.html"
+                    class="inline-block bg-secondary hover:bg-secondary-dark text-white px-12 py-5 rounded-full font-bold shadow-xl shadow-orange-500/20 transition-all uppercase text-lg">
+                    <i class="fas fa-calendar-check mr-3"></i>
+                    BOOK YOUR TRIP
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

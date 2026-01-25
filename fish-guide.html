@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Species Guide | OceanBound Fishing</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/nautical.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0284c7',
+                            dark: '#0369a1',
+                        },
+                        secondary: {
+                            DEFAULT: '#fb923c',
+                            dark: '#ea580c',
+                        },
+                        accent: '#1e3a8a',
+                        neutral: {
+                            sandy: '#fef3c7',
+                            driftwood: '#78716c',
+                        },
+                        aqua: '#14b8a6',
+                        coral: '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-900">
+    <!-- Ambient Sea Decorations -->
+    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
+
+    <header id="main-header"></header>
+
+    <main class="pt-32 pb-24">
+        <div class="container mx-auto px-4">
+            <h1 class="text-6xl text-center text-accent dark:text-white mb-8 uppercase">Atlantic Species Guide</h1>
+            <p class="text-center text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto mb-20 leading-relaxed">
+                Jupiter's waters are home to some of the most sought-after game fish in the world. Learn about the
+                species you'll target, when to fish for them, and the techniques that work best. Our captains are
+                experts in all these species and will put you on the fish of your dreams.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+                <!-- Species 1: Atlantic Sailfish -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700 flex flex-col md:flex-row hover:shadow-2xl transition-shadow">
+                    <div class="md:w-2/5 relative">
+                        <img src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?w=600"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+                    </div>
+                    <div class="md:w-3/5 p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-3xl font-bold text-accent dark:text-white">Atlantic Sailfish</h3>
+                            <span
+                                class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Offshore</span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                            The crown jewel of Florida sportfishing. Known for their incredible jumping ability and
+                            speed (up to 68mph), Sailfish are the ultimate trophy. These acrobatic fighters put on an
+                            unforgettable show when hooked. Jupiter is considered one of the top Sailfish destinations
+                            in the world, with multiple fish days being common during peak season.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 border-t dark:border-slate-700 pt-6 mb-6">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Peak
+                                    Season</span>
+                                <span class="font-bold dark:text-white text-sm">Nov - May</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Min. Size</span>
+                                <span class="font-bold dark:text-white text-sm">63" (LJL)</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Best
+                                    Technique</span>
+                                <span class="font-bold dark:text-white text-sm">Live Bait, Kite Fishing</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Avg.
+                                    Weight</span>
+                                <span class="font-bold dark:text-white text-sm">40-60 lbs</span>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                <strong class="text-accent dark:text-primary">Conservation Note:</strong> We practice
+                                catch & release for all Sailfish to preserve this incredible fishery.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Species 2: Mahi-Mahi -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700 flex flex-col md:flex-row hover:shadow-2xl transition-shadow">
+                    <div class="md:w-2/5 relative">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-aqua/20 mix-blend-multiply"></div>
+                    </div>
+                    <div class="md:w-3/5 p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-3xl font-bold text-accent dark:text-white">Mahi-Mahi (Dolphin)</h3>
+                            <span
+                                class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Offshore</span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                            Arguably the most beautiful fish in the ocean with their brilliant gold, green, and blue
+                            colors. Mahi are aggressive feeders and excellent table fare. They often travel in schools,
+                            so multiple hookups are common. These fast-growing fish provide non-stop action and make for
+                            an exciting day on the water.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 border-t dark:border-slate-700 pt-6 mb-6">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Peak
+                                    Season</span>
+                                <span class="font-bold dark:text-white text-sm">Apr - Aug</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Min. Size</span>
+                                <span class="font-bold dark:text-white text-sm">20" Fork Length</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Best
+                                    Technique</span>
+                                <span class="font-bold dark:text-white text-sm">Trolling, Casting</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Avg.
+                                    Weight</span>
+                                <span class="font-bold dark:text-white text-sm">10-30 lbs</span>
+                            </div>
+                        </div>
+                        <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                <strong class="text-accent dark:text-primary">Table Fare:</strong> Excellent eating!
+                                We'll clean and bag your catch for the grill.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Species 3: Snook -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700 flex flex-col md:flex-row hover:shadow-2xl transition-shadow">
+                    <div class="md:w-2/5 relative">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-purple-500/20 mix-blend-multiply"></div>
+                    </div>
+                    <div class="md:w-3/5 p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-3xl font-bold text-accent dark:text-white">Snook</h3>
+                            <span
+                                class="bg-aqua/10 text-aqua px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Inshore</span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                            Florida's signature inshore species. Snook are powerful fighters that love structure—docks,
+                            mangroves, and bridges. They're known for their explosive strikes and hard runs. Highly
+                            prized by anglers for both their fighting ability and delicious white meat. Snook fishing
+                            requires skill and finesse, making them a favorite challenge.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 border-t dark:border-slate-700 pt-6 mb-6">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Peak
+                                    Season</span>
+                                <span class="font-bold dark:text-white text-sm">Year Round</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Slot
+                                    Limit</span>
+                                <span class="font-bold dark:text-white text-sm">28-33" Total</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Best
+                                    Technique</span>
+                                <span class="font-bold dark:text-white text-sm">Live Bait, Plugs</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Avg.
+                                    Weight</span>
+                                <span class="font-bold dark:text-white text-sm">5-15 lbs</span>
+                            </div>
+                        </div>
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                <strong class="text-accent dark:text-primary">Seasonal Closure:</strong> Check current
+                                regulations as Snook have seasonal closures for spawning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Species 4: Tarpon -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700 flex flex-col md:flex-row hover:shadow-2xl transition-shadow">
+                    <div class="md:w-2/5 relative">
+                        <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=600"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-orange-500/20 mix-blend-multiply"></div>
+                    </div>
+                    <div class="md:w-3/5 p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-3xl font-bold text-accent dark:text-white">Tarpon</h3>
+                            <span
+                                class="bg-aqua/10 text-aqua px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Inshore</span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                            The "Silver King" - one of the most spectacular game fish in the world. Tarpon are famous
+                            for their aerial acrobatics and brute strength. These prehistoric fish can grow over 200
+                            pounds and provide battles that can last hours. Night fishing for Tarpon under the bridges
+                            is a bucket-list experience that every angler should try.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 border-t dark:border-slate-700 pt-6 mb-6">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Peak
+                                    Season</span>
+                                <span class="font-bold dark:text-white text-sm">Apr - Sep</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Permit
+                                    Required</span>
+                                <span class="font-bold dark:text-white text-sm">Tarpon Tag ($50)</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Best
+                                    Technique</span>
+                                <span class="font-bold dark:text-white text-sm">Live Crab, Mullet</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Avg.
+                                    Weight</span>
+                                <span class="font-bold dark:text-white text-sm">80-150 lbs</span>
+                            </div>
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                <strong class="text-accent dark:text-primary">Catch & Release Only:</strong> Tarpon must
+                                be released. Quick photos at boatside only.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Species 5: Wahoo -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700 flex flex-col md:flex-row hover:shadow-2xl transition-shadow">
+                    <div class="md:w-2/5 relative">
+                        <img src="https://images.unsplash.com/photo-1502051907873-8c6d578e4c64?w=600"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-blue-600/20 mix-blend-multiply"></div>
+                    </div>
+                    <div class="md:w-3/5 p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-3xl font-bold text-accent dark:text-white">Wahoo</h3>
+                            <span
+                                class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Offshore</span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                            The fastest fish in the ocean, capable of speeds over 60 mph. Wahoo are prized for their
+                            blistering runs and excellent eating quality. These torpedo-shaped predators have
+                            razor-sharp teeth and strike with incredible force. Winter months bring trophy-sized Wahoo
+                            to Jupiter's offshore waters, with fish over 100 pounds possible.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 border-t dark:border-slate-700 pt-6 mb-6">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Peak
+                                    Season</span>
+                                <span class="font-bold dark:text-white text-sm">Nov - Mar</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">No Size
+                                    Limit</span>
+                                <span class="font-bold dark:text-white text-sm">2 Per Person</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Best
+                                    Technique</span>
+                                <span class="font-bold dark:text-white text-sm">High-Speed Trolling</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Avg.
+                                    Weight</span>
+                                <span class="font-bold dark:text-white text-sm">30-80 lbs</span>
+                            </div>
+                        </div>
+                        <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                <strong class="text-accent dark:text-primary">Premium Sashimi:</strong> Wahoo is
+                                considered one of the finest eating fish in the ocean.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Species 6: Redfish -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700 flex flex-col md:flex-row hover:shadow-2xl transition-shadow">
+                    <div class="md:w-2/5 relative">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600"
+                            class="w-full h-full object-cover opacity-50">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-fish text-8xl text-primary/20"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5 p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-3xl font-bold text-accent dark:text-white">Red Drum (Redfish)</h3>
+                            <span
+                                class="bg-aqua/10 text-aqua px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Inshore</span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                            A hard-fighting favorite in the flats and mangroves. Redfish are known for their
+                            copper-bronze color and distinctive black spot near the tail. They provide an incredible
+                            fight on light tackle and are available year-round. Sight fishing for "tailing" reds in
+                            shallow water is one of the most exciting forms of inshore angling.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 border-t dark:border-slate-700 pt-6 mb-6">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Peak
+                                    Season</span>
+                                <span class="font-bold dark:text-white text-sm">Year Round</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Slot
+                                    Limit</span>
+                                <span class="font-bold dark:text-white text-sm">18-27" Total</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Best
+                                    Technique</span>
+                                <span class="font-bold dark:text-white text-sm">Cut Bait, Jigs</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase mb-1">Avg.
+                                    Weight</span>
+                                <span class="font-bold dark:text-white text-sm">5-12 lbs</span>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                <strong class="text-accent dark:text-primary">Great for Beginners:</strong> Redfish are
+                                aggressive feeders and perfect for first-time anglers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seasonal Calendar -->
+            <div class="mb-20">
+                <h2 class="text-4xl font-bold text-accent dark:text-white mb-10 text-center uppercase">Seasonal
+                    Availability Chart</h2>
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-700">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-accent text-white font-nautical uppercase tracking-widest text-sm">
+                                    <th class="p-6 text-left">SPECIES</th>
+                                    <th class="p-6">JAN</th>
+                                    <th class="p-6">FEB</th>
+                                    <th class="p-6">MAR</th>
+                                    <th class="p-6">APR</th>
+                                    <th class="p-6">MAY</th>
+                                    <th class="p-6">JUN</th>
+                                    <th class="p-6">JUL</th>
+                                    <th class="p-6">AUG</th>
+                                    <th class="p-6">SEP</th>
+                                    <th class="p-6">OCT</th>
+                                    <th class="p-6">NOV</th>
+                                    <th class="p-6">DEC</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center dark:text-slate-300">
+                                <tr class="border-b dark:border-slate-700">
+                                    <td class="p-6 text-left font-bold text-accent dark:text-primary">Sailfish</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                </tr>
+                                <tr class="border-b dark:border-slate-700">
+                                    <td class="p-6 text-left font-bold text-accent dark:text-primary">Mahi Mahi</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                </tr>
+                                <tr class="border-b dark:border-slate-700">
+                                    <td class="p-6 text-left font-bold text-accent dark:text-primary">Snook</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6">❌</td>
+                                    <td class="p-6">❌</td>
+                                    <td class="p-6">❌</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                </tr>
+                                <tr class="border-b dark:border-slate-700">
+                                    <td class="p-6 text-left font-bold text-accent dark:text-primary">Tarpon</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                </tr>
+                                <tr class="border-b dark:border-slate-700">
+                                    <td class="p-6 text-left font-bold text-accent dark:text-primary">Wahoo</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">-</td>
+                                    <td class="p-6">✔️</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-6 text-left font-bold text-accent dark:text-primary">Redfish</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                    <td class="p-6 bg-aqua/20">🔥</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-6 bg-slate-50 dark:bg-slate-900/50 border-t dark:border-slate-700">
+                        <div class="flex flex-wrap gap-6 justify-center text-sm">
+                            <div class="flex items-center gap-2">
+                                <span>🔥</span>
+                                <span class="text-slate-600 dark:text-slate-400">Peak Season</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>✔️</span>
+                                <span class="text-slate-600 dark:text-slate-400">Available</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>❌</span>
+                                <span class="text-slate-600 dark:text-slate-400">Closed Season</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>-</span>
+                                <span class="text-slate-600 dark:text-slate-400">Limited</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conservation Section -->
+            <div class="bg-gradient-to-r from-accent to-primary text-white rounded-3xl p-12 shadow-2xl mb-20">
+                <h2 class="text-4xl font-bold mb-8 text-center uppercase tracking-tight">Our Conservation Commitment
+                </h2>
+                <div class="max-w-3xl mx-auto space-y-6 text-blue-100 leading-relaxed">
+                    <p>
+                        At OceanBound, we're passionate about preserving Florida's incredible fishery for future
+                        generations. We practice responsible catch and release techniques, use circle hooks to minimize
+                        injury, and educate our guests on proper fish handling.
+                    </p>
+                    <p>
+                        All our captains are certified in proper release techniques and follow FWC guidelines strictly.
+                        We encourage catch and release for all billfish (Sailfish, Marlin) and oversized specimens. When
+                        keeping fish for the table, we promote taking only what you'll eat and staying well within legal
+                        limits.
+                    </p>
+                    <p class="font-bold text-white">
+                        Together, we can ensure that Jupiter's waters remain one of the world's premier fishing
+                        destinations for generations to come.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center bg-secondary/10 dark:bg-secondary/20 rounded-3xl p-12">
+                <h2 class="text-4xl font-bold text-accent dark:text-white mb-4">Ready to Target Your Dream Fish?</h2>
+                <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
+                    Our captains know exactly where to find each species during their peak season. Book your charter
+                    today!
+                </p>
+                <a href="dashboard.html"
+                    class="inline-block bg-secondary hover:bg-secondary-dark text-white px-12 py-5 rounded-full font-bold shadow-xl shadow-orange-500/20 transition-all uppercase text-lg">
+                    Book Your Charter
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

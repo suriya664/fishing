@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Explorer | OceanBound Fishing Charters</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+
+    <!-- Stylesheets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/nautical.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0284c7',
+                            dark: '#0369a1',
+                        },
+                        secondary: {
+                            DEFAULT: '#fb923c',
+                            dark: '#ea580c',
+                        },
+                        accent: '#1e3a8a',
+                        neutral: {
+                            sandy: '#fef3c7',
+                            driftwood: '#78716c',
+                        },
+                        aqua: '#14b8a6',
+                        coral: '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-900 overflow-x-hidden">
+    <!-- Ambient Sea Decorations -->
+    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
+
+    <header id="main-header"></header>
+
+    <main class="pt-20">
+        <!-- Split Hero Section -->
+        <section class="min-h-[calc(100vh-80px)] flex flex-col lg:flex-row">
+            <!-- Left: Interactive Map/Dashboard Mockup -->
+            <div class="lg:w-3/5 relative bg-accent overflow-hidden">
+                <div id="map" class="absolute inset-0 z-0"></div>
+                <div class="absolute inset-0 bg-blue-900/10 pointer-events-none z-10"></div>
+
+                <!-- Map Overlay Stats -->
+                <div class="absolute top-6 left-6 z-20 flex flex-col gap-4">
+                    <div class="glass p-4 rounded-xl text-white shadow-2xl">
+                        <p class="text-xs font-bold uppercase tracking-widest text-blue-300 mb-1">Live Activity</p>
+                        <div class="flex items-center gap-3">
+                            <span class="flex h-3 w-3 relative">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-aqua opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-aqua"></span>
+                            </span>
+                            <span class="text-2xl font-bold font-nautical">8 BOATS ON WATER</span>
+                        </div>
+                    </div>
+                    <div class="glass p-4 rounded-xl text-white shadow-2xl">
+                        <p class="text-xs font-bold uppercase tracking-widest text-blue-300 mb-1">Hot Zone</p>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-fire text-secondary"></i>
+                            <span class="text-xl font-bold uppercase">The Ledge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Feed Ticker -->
+                <div
+                    class="absolute bottom-6 left-6 right-6 z-20 glass p-3 rounded-lg text-white overflow-hidden border border-white/10">
+                    <div class="flex items-center gap-4 whitespace-nowrap animate-marquee">
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-aqua"></i> Capt. John
+                            Hooked a 45lb Kingfish!</span>
+                        <span class="text-blue-400">|</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-aqua"></i> Sea Hunter
+                            heading back with full limit!</span>
+                        <span class="text-blue-400">|</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-aqua"></i> 3 Sailfish
+                            releases reported!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Booking Form -->
+            <div class="lg:w-2/5 p-8 lg:p-16 flex flex-col justify-center bg-white dark:bg-slate-800 relative">
+                <div class="mb-10">
+                    <h1 class="text-5xl text-accent dark:text-white mb-4">COMMAND YOUR TRIP</h1>
+                    <p class="text-slate-500 dark:text-slate-400">Configure your professional fishing expedition in
+                        real-time.</p>
+                </div>
+
+                <form class="space-y-8">
+                    <!-- Pricing Calculator Mock -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold uppercase mb-3 text-slate-400">Selective Gear
+                                Options</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button type="button"
+                                    class="p-4 border-2 border-primary bg-primary/5 rounded-xl text-center transition-all">
+                                    <i class="fas fa-ship text-2xl text-primary mb-2"></i>
+                                    <span class="block font-bold dark:text-white">Tournament Boat</span>
+                                </button>
+                                <button type="button"
+                                    class="p-4 border-2 border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-primary transition-all">
+                                    <i class="fas fa-water text-2xl text-slate-400 mb-2"></i>
+                                    <span class="block font-bold dark:text-white">Skiff / Inshore</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Anglers</label>
+                                <div
+                                    class="flex items-center justify-between border-2 border-slate-200 dark:border-slate-700 rounded-lg p-2">
+                                    <button type="button"
+                                        class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">-</button>
+                                    <span class="font-bold dark:text-white">4</span>
+                                    <button type="button"
+                                        class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Duration
+                                    (Hours)</label>
+                                <select
+                                    class="w-full border-2 border-slate-200 dark:border-slate-700 rounded-lg p-3 font-bold bg-transparent dark:text-white">
+                                    <option>4 Hours</option>
+                                    <option>6 Hours</option>
+                                    <option selected>8 Hours</option>
+                                    <option>12 Hours</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-500 font-medium">Estimated Expense</span>
+                                <span class="text-3xl font-bold text-primary font-nautical">$850.00</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 uppercase font-bold text-right">*Fuel & Gear included
+                            </p>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-5 rounded-2xl shadow-xl shadow-orange-500/20 transform hover:-translate-y-1 transition-all text-xl uppercase tracking-widest">
+                        SECURE EXPEDITION
+                    </button>
+                </form>
+
+                <!-- Seasonal Tips -->
+                <div class="mt-12 p-4 bg-orange-50 dark:bg-orange-950/20 border-l-4 border-orange-400 rounded-r-lg">
+                    <div class="flex gap-4">
+                        <i class="fas fa-info-circle text-orange-400 mt-1"></i>
+                        <div>
+                            <p class="text-sm font-bold text-orange-900 dark:text-orange-200 mb-1">PRO TIP: SEASONAL
+                                PEAK</p>
+                            <p class="text-xs text-orange-800 dark:text-orange-300">Sailfish action is currently
+                                EXPLOSIVE. Book an offshore trip for best results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fishing Season Calendar Section -->
+        <section class="py-24 bg-slate-100 dark:bg-slate-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl text-center mb-16 text-accent dark:text-white">FISH AVAILABILITY MATRIX</h2>
+
+                <div class="overflow-x-auto">
+                    <table
+                        class="w-full border-collapse bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+                        <thead>
+                            <tr class="bg-accent text-white font-nautical uppercase tracking-widest text-sm">
+                                <th class="p-6 text-left">SPECIES</th>
+                                <th class="p-6">JAN</th>
+                                <th class="p-6">FEB</th>
+                                <th class="p-6">MAR</th>
+                                <th class="p-6">APR</th>
+                                <th class="p-6">MAY</th>
+                                <th class="p-6">JUN</th>
+                                <th class="p-6">JUL</th>
+                                <th class="p-6">AUG</th>
+                                <th class="p-6">SEP</th>
+                                <th class="p-6">OCT</th>
+                                <th class="p-6">NOV</th>
+                                <th class="p-6">DEC</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center dark:text-slate-300">
+                            <tr class="border-b dark:border-slate-700">
+                                <td class="p-6 text-left font-bold text-accent dark:text-primary">Sailfish</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                            </tr>
+                            <tr class="border-b dark:border-slate-700">
+                                <td class="p-6 text-left font-bold text-accent dark:text-primary">Mahi Mahi</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6 bg-aqua/20">🔥</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                                <td class="p-6">✔️</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Init Map
+        const map = L.map('map', {
+            center: [26.9342, -80.0942],
+            zoom: 11,
+            zoomControl: false,
+            attributionControl: false
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        const markers = [
+            { pos: [26.942, -80.05], name: 'Sailfish Alley', icon: 'fas fa-fish' },
+            { pos: [26.96, -80.1], name: 'The Treasure Coast', icon: 'fas fa-anchor' }
+        ];
+
+        markers.forEach(m => {
+            L.marker(m.pos).addTo(map).bindPopup(m.name);
+        });
+    </script>
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+    </style>
+</body>
+
+</html>

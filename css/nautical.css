@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&family=Roboto+Condensed:wght@700&display=swap');
+
+:root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --secondary: #fb923c;
+    --secondary-dark: #ea580c;
+    --accent: #1e3a8a;
+    --neutral-light: #fef3c7;
+    --neutral-dark: #78716c;
+    --success: #14b8a6;
+    --alert: #ef4444;
+    --bg-light: #ffffff;
+    --text-light: #1e293b;
+    --bg-dark: #0f172a;
+    --text-dark: #f1f5f9;
+}
+
+[data-theme='dark'] {
+    --bg-color: var(--bg-dark);
+    --text-color: var(--text-dark);
+    --primary: #38bdf8;
+    --secondary: #fdba74;
+}
+
+[data-theme='light'] {
+    --bg-color: var(--bg-light);
+    --text-color: var(--text-light);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.05em;
+}
+
+.font-nautical {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Custom Wave Animation */
+.wave-container {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 80px;
+    animation: wave-move 10s linear infinite;
+}
+
+@keyframes wave-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.3%); }
+}
+
+/* Nautical Rope Border */
+.rope-border {
+    border: 8px solid transparent;
+    border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 10 Q 5 0, 10 10 T 20 10" fill="none" stroke="%2378716c" stroke-width="2"/></svg>') 10 repeat;
+}
+
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animated Fish */
+.swimming-fish {
+    position: absolute;
+    width: 40px;
+    opacity: 0.6;
+    z-index: 10;
+    pointer-events: none;
+    animation: swim 15s ease-in-out infinite;
+}
+
+@keyframes swim {
+    0% { left: -50px; transform: scaleX(1) translateY(0); }
+    50% { transform: scaleX(1) translateY(20px); }
+    100% { left: 100%; transform: scaleX(1) translateY(0); }
+}
+
+/* RTL Support Utilities */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .ml-auto {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+[dir="rtl"] .mr-auto {
+    margin-left: auto;
+    margin-right: 0;
+}

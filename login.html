@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | OceanBound</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/nautical.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0284c7',
+                            dark: '#0369a1',
+                        },
+                        secondary: {
+                            DEFAULT: '#fb923c',
+                            dark: '#ea580c',
+                        },
+                        accent: '#1e3a8a',
+                        neutral: {
+                            sandy: '#fef3c7',
+                            driftwood: '#78716c',
+                        },
+                        aqua: '#14b8a6',
+                        coral: '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hide scrollbar but keep functionality */
+        body {
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+    </style>
+</head>
+
+<body class="bg-blue-900 min-h-screen relative">
+    <!-- Ambient Sea Decorations -->
+    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Background Decoration -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=1200"
+            class="w-full h-full object-cover blur-sm opacity-40">
+        <div class="absolute inset-0 bg-accent/40 mix-blend-multiply"></div>
+    </div>
+
+    <div class="relative z-10 min-h-screen flex items-center justify-center py-12 px-4">
+        <div class="bg-white/10 backdrop-blur-2xl p-10 rounded-[2.5rem] border border-white/20 shadow-2xl">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center justify-center gap-3 mb-8 group">
+                <div class="bg-secondary p-3 rounded-full transform group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-anchor text-3xl text-white"></i>
+                </div>
+                <span class="text-3xl font-bold tracking-tighter text-white">OCEAN<span
+                        class="text-secondary">BOUND</span></span>
+            </a>
+
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-bold text-white mb-2 uppercase tracking-tight">Welcome Aboard</h1>
+                <p class="text-blue-100 text-sm">Enter your credentials to access your terminal</p>
+            </div>
+
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-blue-200 mb-2 ml-1">Email Address</label>
+                    <input type="email" placeholder="captain@oceanbound.com"
+                        class="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white placeholder-blue-300 focus:outline-none focus:border-secondary transition-all">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-blue-200 mb-2 ml-1">Password</label>
+                    <input type="password" placeholder="••••••••"
+                        class="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white placeholder-blue-300 focus:outline-none focus:border-secondary transition-all">
+                </div>
+
+                <div class="flex items-center justify-between text-xs font-bold uppercase text-blue-200">
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input type="checkbox" class="accent-secondary h-4 w-4">
+                        <span class="group-hover:text-white transition-colors">Keep Logged In</span>
+                    </label>
+                    <a href="#" class="hover:text-white transition-colors">Forgot Lock?</a>
+                </div>
+
+                <button type="submit" onclick="location.href='dashboard.html'; return false;"
+                    class="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-4 rounded-2xl shadow-xl shadow-orange-500/20 transform hover:-translate-y-1 transition-all uppercase tracking-widest">
+                    Engage Engines
+                </button>
+            </form>
+
+            <div class="mt-8 pt-8 border-t border-white/10 text-center">
+                <p class="text-blue-200 text-sm">
+                    Don't have an account? <a href="register.html" class="text-white font-bold hover:underline">Register
+                        Now</a>
+                </p>
+            </div>
+
+            <div class="mt-8 flex justify-center gap-6">
+                <button class="bg-white/5 hover:bg-white/10 p-3 rounded-xl transition-all border border-white/10">
+                    <i class="fab fa-google text-white text-xl"></i>
+                </button>
+                <button class="bg-white/5 hover:bg-white/10 p-3 rounded-xl transition-all border border-white/10">
+                    <i class="fab fa-facebook-f text-white text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- End scrollable container -->
+
+    <script>
+        // Initialize theme without header/footer
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') document.documentElement.classList.add('dark');
+    </script>
+</body>
+
+</html>

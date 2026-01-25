@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanBound | Florida's Premier Fishing Charters</title>
+    <meta name="description" content="Book the ultimate fishing adventure in Jupiter, Florida. Deep sea, inshore, and offshore charters with experienced USCG licensed captains.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+    
+    <!-- Stylesheets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/nautical.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0284c7',
+                            dark: '#0369a1',
+                        },
+                        secondary: {
+                            DEFAULT: '#fb923c',
+                            dark: '#ea580c',
+                        },
+                        accent: '#1e3a8a',
+                        neutral: {
+                            sandy: '#fef3c7',
+                            driftwood: '#78716c',
+                        },
+                        aqua: '#14b8a6',
+                        coral: '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+    <!-- Ambient Sea Decorations -->
+    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
+
+    <header id="main-header"></header>
+
+    <main>
+        <!-- Home Page V1 - Coastal Adventure -->
+        <!-- Hero Section -->
+        <section class="h-screen relative flex items-center justify-center overflow-hidden">
+            <!-- Video Overlay Placeholder -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920" alt="Fishing Boat" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-transparent to-blue-900/20"></div>
+            </div>
+
+            <div class="container mx-auto px-4 z-10 text-center text-white">
+                <h1 class="text-6xl md:text-8xl mb-4 drop-shadow-2xl animate-fade-in-up">UNBOUND ADVENTURE</h1>
+                <p class="text-xl md:text-2xl font-light mb-12 max-w-2xl mx-auto drop-shadow-lg">Discover Florida's most elite fishing experiences. Where the horizon meets the hook.</p>
+                
+                <!-- Quick Booking Widget -->
+                <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20 shadow-2xl">
+                    <form class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                        <div class="text-left">
+                            <label class="block text-xs font-bold uppercase mb-2 text-blue-200">Trip Date</label>
+                            <input type="date" class="w-full bg-white text-slate-900 px-4 py-3 rounded-lg focus:outline-none font-semibold">
+                        </div>
+                        <div class="text-left">
+                            <label class="block text-xs font-bold uppercase mb-2 text-blue-200">Guests</label>
+                            <select class="w-full bg-white text-slate-900 px-4 py-3 rounded-lg focus:outline-none font-semibold">
+                                <option>1-2 Anglers</option>
+                                <option>3-4 Anglers</option>
+                                <option>5-6 Anglers</option>
+                            </select>
+                        </div>
+                        <div class="text-left">
+                            <label class="block text-xs font-bold uppercase mb-2 text-blue-200">Expedition Type</label>
+                            <select class="w-full bg-white text-slate-900 px-4 py-3 rounded-lg focus:outline-none font-semibold">
+                                <option>Inshore Hunt</option>
+                                <option>Offshore Deep Sea</option>
+                                <option>Night Expedition</option>
+                            </select>
+                        </div>
+                        <button class="bg-secondary hover:bg-secondary-dark text-white font-bold py-3.5 px-8 rounded-lg transition-all transform hover:scale-105 shadow-xl">
+                            CHECK AVAILABILITY
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Wave Overlay -->
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-20 md:h-32 text-slate-50 dark:text-slate-900 fill-current">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,112.49,122.81,103.11,180,89.5,236.19,75.95,262.29,67.31,321.39,56.44Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Featured Packages Section -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Our Expeditions</span>
+                    <h2 class="text-5xl md:text-6xl text-accent dark:text-blue-100">CHART YOUR COURSE</h2>
+                    <div class="w-24 h-1 bg-secondary mx-auto mt-6 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Package Card 1 -->
+                    <div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-700">
+                        <div class="h-64 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">HALF DAY</div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl mb-4 text-accent dark:text-white">Inshore Coastal Hunt</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mb-6 font-light">Target Snook, Redfish, and Trout in the beautiful Florida mangroves. Perfect for families.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-3xl font-bold text-primary font-nautical">$550<span class="text-sm text-slate-400 font-normal">/trip</span></div>
+                                <a href="packages.html" class="text-secondary font-bold hover:underline">Details <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Package Card 2 -->
+                    <div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border-4 border-secondary/20 scale-105 z-20">
+                        <div class="h-64 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1502051907873-8c6d578e4c64?w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Most Popular</div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl mb-4 text-accent dark:text-white">Gulf Stream Deep Sea</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mb-6 font-light">Chase Sailfish, Dolphin (Mahi), and Wahoo in the deep blue. 8 hours of pure adrenaline.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-3xl font-bold text-primary font-nautical">$950<span class="text-sm text-slate-400 font-normal">/trip</span></div>
+                                <a href="packages.html" class="bg-secondary text-white px-6 py-2 rounded-lg font-bold hover:bg-secondary-dark transition-colors">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Package Card 3 -->
+                    <div class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-700">
+                        <div class="h-64 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">FULL DAY</div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl mb-4 text-accent dark:text-white">Giant Bluefin Expedition</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mb-6 font-light">The ultimate bucket-list trip. Multi-day or single day heavy-tackle combat for giants.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-3xl font-bold text-primary font-nautical">$1,400<span class="text-sm text-slate-400 font-normal">/trip</span></div>
+                                <a href="packages.html" class="text-secondary font-bold hover:underline">Details <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background Decoration -->
+            <i class="fas fa-anchor absolute -bottom-20 -right-20 text-[300px] text-slate-200/20 dark:text-white/5 rotate-12 pointer-events-none"></i>
+        </section>
+
+        <!-- Captain Profiles Carousel (Static Grid for now) -->
+        <section class="py-24 bg-slate-100 dark:bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                    <div>
+                        <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Expert Guidance</span>
+                        <h2 class="text-5xl text-accent dark:text-white">MEET YOUR CAPTAINS</h2>
+                    </div>
+                    <a href="captains.html" class="text-secondary font-bold hover:underline mb-2">View All Crew <i class="fas fa-chevron-right ml-2 text-xs"></i></a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Captain 1 -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 mx-auto w-48 h-48">
+                            <div class="absolute inset-0 rounded-full border-2 border-dashed border-primary animate-spin-slow"></div>
+                            <img src="https://i.pravatar.cc/150?img=12" class="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h4 class="text-2xl text-accent dark:text-white">Capt. John Miller</h4>
+                        <p class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Deep Sea Specialist</p>
+                        <div class="flex justify-center text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <!-- Captain 2 -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 mx-auto w-48 h-48">
+                            <div class="absolute inset-0 rounded-full border-2 border-dashed border-primary"></div>
+                            <img src="https://i.pravatar.cc/150?img=33" class="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h4 class="text-2xl text-accent dark:text-white">Capt. Sarah Vance</h4>
+                        <p class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Inshore Expert</p>
+                        <div class="flex justify-center text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+
+                    <!-- Captain 3 -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 mx-auto w-48 h-48">
+                            <div class="absolute inset-0 rounded-full border-2 border-dashed border-primary"></div>
+                            <img src="https://i.pravatar.cc/150?img=68" class="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h4 class="text-2xl text-accent dark:text-white">Capt. Mike Ross</h4>
+                        <p class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Tournament Guide</p>
+                        <div class="flex justify-center text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <!-- Captain 4 -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 mx-auto w-48 h-48">
+                            <div class="absolute inset-0 rounded-full border-2 border-dashed border-primary"></div>
+                            <img src="https://i.pravatar.cc/150?img=47" class="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-xl group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h4 class="text-2xl text-accent dark:text-white">Capt. David King</h4>
+                        <p class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Fly Fishing Master</p>
+                        <div class="flex justify-center text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Widget Preview -->
+        <section class="py-12 bg-accent text-white overflow-hidden relative">
+            <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div class="flex gap-8 items-center">
+                    <div class="text-6xl text-secondary">
+                        <i class="fas fa-sun animate-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl mb-1">JUPITER INLET CONDITIONS</h3>
+                        <p class="text-blue-200 uppercase tracking-widest font-bold">Clear Sky • 78°F • Winds SE 10kt • Seas 2ft</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="bg-white/10 p-4 rounded-xl text-center min-w-[100px]">
+                        <span class="block text-xs text-blue-300 font-bold mb-1 uppercase">Mon</span>
+                        <i class="fas fa-sun text-xl mb-2"></i>
+                        <span class="block text-xl font-bold">82°</span>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center min-w-[100px]">
+                        <span class="block text-xs text-blue-300 font-bold mb-1 uppercase">Tue</span>
+                        <i class="fas fa-cloud-sun text-xl mb-2"></i>
+                        <span class="block text-xl font-bold">80°</span>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center min-w-[100px]">
+                        <span class="block text-xs text-blue-300 font-bold mb-1 uppercase">Wed</span>
+                        <i class="fas fa-cloud-showers-heavy text-xl mb-2 text-blue-400"></i>
+                        <span class="block text-xl font-bold">76°</span>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center min-w-[100px] hidden md:block">
+                        <span class="block text-xs text-blue-300 font-bold mb-1 uppercase">Thu</span>
+                        <i class="fas fa-sun text-xl mb-2"></i>
+                        <span class="block text-xl font-bold">81°</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Signals / Stats -->
+        <section class="py-24">
+            <div class="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div>
+                    <i class="fas fa-shield-alt text-4xl text-primary mb-6"></i>
+                    <h5 class="text-4xl font-bold text-accent dark:text-white font-nautical">100%</h5>
+                    <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Licensed & Insured</p>
+                </div>
+                <div>
+                    <i class="fas fa-fish text-4xl text-secondary mb-6"></i>
+                    <h5 class="text-4xl font-bold text-accent dark:text-white font-nautical">15k+</h5>
+                    <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Successful Catches</p>
+                </div>
+                <div>
+                    <i class="fas fa-ship text-4xl text-primary mb-6"></i>
+                    <h5 class="text-4xl font-bold text-accent dark:text-white font-nautical">12</h5>
+                    <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Pristine Vessels</p>
+                </div>
+                <div>
+                    <i class="fas fa-smile-beam text-4xl text-secondary mb-6"></i>
+                    <h5 class="text-4xl font-bold text-accent dark:text-white font-nautical">5.0</h5>
+                    <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Google Rating</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <style>
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>
