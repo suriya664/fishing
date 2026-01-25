@@ -83,22 +83,22 @@ function renderHeader() {
                 ${navItems.map(item => {
         const isActive = currentPath === item.url;
         return `
-                        <a href="${item.url}" class="font-medium transform transition-all duration-300 ${isActive ? 'text-secondary scale-110 border-b-2 border-secondary' : 'hover:text-primary hover:scale-105'}">${item.name}</a>
+                        <a href="${item.url}" class="font-medium transform transition-all duration-300 ${isActive ? 'text-secondary scale-110 border-b-2 border-secondary' : 'text-slate-700 dark:text-accent hover:text-primary hover:scale-105'}">${item.name}</a>
                     `;
     }).join('')}
             </nav>
 
             <div class="flex items-center gap-4">
-                <button onclick="toggleTheme()" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full text-accent dark:text-white" title="Toggle Theme">
+                <button onclick="toggleTheme()" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full text-slate-700 dark:text-accent" title="Toggle Theme">
                     <i class="fas fa-moon dark:hidden"></i>
                     <i class="fas fa-sun hidden dark:block"></i>
                 </button>
 
-                <button onclick="toggleRTL()" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full text-xs font-bold text-accent dark:text-white" title="Toggle RTL">
+                <button onclick="toggleRTL()" class="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full text-xs font-bold text-slate-700 dark:text-accent" title="Toggle RTL">
                     RTL
                 </button>
 
-                <a href="login.html" class="hidden md:inline-block border-2 border-accent dark:border-white text-accent dark:text-white px-5 py-2 rounded-full font-bold hover:bg-accent hover:text-white dark:hover:bg-white dark:hover:text-accent transition-all uppercase text-sm">
+                <a href="login.html" class="hidden md:inline-block border-2 border-slate-700 dark:border-accent text-slate-700 dark:text-accent px-5 py-2 rounded-full font-bold hover:bg-accent hover:text-white dark:hover:bg-white dark:hover:text-accent transition-all uppercase text-sm">
                     Login
                 </a>
 
