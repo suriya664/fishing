@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="antialiased">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <title>Booking | Aurelius Charters</title>
+  <meta name="description"
+    content="Reserve your luxury fishing charter with calendar availability, add-ons, promo pricing, and secure payment options." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Sora', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+
+<body class="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-40 border-b border-slate-200/10 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto flex w-[95%] max-w-7xl 2xl:max-w-[90rem] items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+          </svg>
+        </span>
+        <span class="font-display text-sm font-semibold tracking-[0.24em] text-sky-100 sm:text-base">AURELIUS</span>
+      </a>
+      <button data-menu-toggle="site-menu"
+        class="rounded-xl border border-slate-700 px-3 py-2 text-xs lg:hidden">Menu</button>
+      <nav id="site-menu"
+        class="absolute inset-x-4 top-16 hidden rounded-2xl glass p-4 lg:static lg:block lg:rounded-none lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+        <ul class="flex flex-col gap-2 text-sm lg:flex-row lg:items-center lg:gap-2">
+          <li><a data-nav-link href="index.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Home</a></li>
+          <li><a data-nav-link href="index-v2.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Home V2</a></li>
+          <li><a data-nav-link href="booking.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Booking</a></li>
+          <li><a data-nav-link href="services.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Services</a></li>
+          <li><a data-nav-link href="gallery.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Gallery</a></li>
+          <li><a data-nav-link href="blog.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Blog</a></li>
+          <li><a data-nav-link href="contact.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Contact</a></li>
+          <li><a data-nav-link href="dashboard.html"
+              class="rounded-lg border border-sky-300/30 bg-sky-300/10 px-3 py-2 text-sky-100">Dashboard</a></li>
+          <li><a data-nav-link href="login.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Login</a></li>
+          <li><a data-nav-link href="signup.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Sign Up</a></li>
+          <li class="flex gap-2 pt-2 lg:pt-0">
+            <button data-toggle-theme class="rounded-lg border border-slate-300/30 px-3 py-2 text-xs">Theme: <span
+                data-theme-label>Dark</span></button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto w-[95%] max-w-7xl 2xl:max-w-[90rem] pb-20 pt-14 lg:pt-10">
+    <section
+      class="booking-hero-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 min-h-[80vh]"
+      data-booking-hero>
+      <div class="grid min-h-[70vh] lg:min-h-[80vh] lg:grid-cols-[1.6fr_1fr]">
+        <div class="relative h-[32vh] overflow-hidden lg:h-auto">
+          <img id="booking-hero-image"
+            src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=2100&q=80&fm=webp"
+            alt="Luxury yacht deck at golden hour" class="absolute inset-0 h-full w-full object-cover"
+            loading="eager" />
+          <div class="absolute inset-0 bg-gradient-to-br from-[#0E2A3A]/80 via-[#0E2A3A]/60 to-transparent"></div>
+          <div class="booking-hero-reflection absolute inset-0" aria-hidden="true"></div>
+        </div>
+
+        <div class="relative flex items-center justify-center p-5 sm:p-8 lg:p-10">
+          <article id="booking-hero-panel"
+            class="relative w-full max-w-[40rem] rounded-3xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur-xl sm:p-8">
+            <svg class="booking-hero-compass absolute right-6 top-6 w-14 opacity-15 lg:right-8 lg:top-8 lg:w-20"
+              viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="2" />
+              <circle cx="100" cy="100" r="56" fill="none" stroke="currentColor" stroke-width="1.4" />
+              <path d="M100 38 L118 100 L100 162 L82 100 Z" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <p class="booking-hero-kicker text-xs uppercase tracking-[0.3em]">Premium Scheduling</p>
+            <h1 id="booking-hero-title"
+              class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-[3.1rem] lg:leading-[0.95]">
+              Book Your Luxury Charter in Minutes</h1>
+            <div class="mt-5 h-[2px] w-16 rounded-full bg-[#0E2A3A]/50"></div>
+            <p id="booking-hero-subtitle" class="mt-5 max-w-xl text-sm leading-relaxed sm:text-base">Reserve your slot,
+              lock your captain, and jump directly into a premium booking workflow built for high-end ocean experiences.
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-4">
+              <a href="#booking-calendar"
+                class="rounded-xl bg-gradient-to-r from-sky-400 to-cyan-300 px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-slate-950 transition hover:scale-105 hover:brightness-110 shadow-lg shadow-sky-500/20">View
+                Availability</a>
+              <button type="button" data-open-booking-shortcut
+                class="rounded-xl border-2 border-slate-900/80 bg-transparent px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-slate-900 transition hover:bg-slate-900 hover:text-white hover:scale-105 dark:border-slate-200/45 dark:text-slate-100 dark:hover:bg-slate-100 dark:hover:text-slate-950">Quick
+                Reserve</button>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.2em]">
+              <span class="inline-flex items-center gap-2"><span
+                  class="h-2.5 w-2.5 rounded-full bg-emerald-500/70"></span>Available</span>
+              <span class="inline-flex items-center gap-2"><span
+                  class="h-2.5 w-2.5 rounded-full bg-rose-500/70"></span>Booked</span>
+              <span class="inline-flex items-center gap-2"><span
+                  class="h-2.5 w-2.5 rounded-full bg-amber-500/70"></span>Limited</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-10 booking-experience-shell relative isolate min-h-[80vh] overflow-hidden rounded-3xl border border-slate-200/20"
+      data-charter-experience>
+      <img src="https://images.unsplash.com/photo-1562281302-809108fd533c?auto=format&fit=crop&w=2100&q=80&fm=webp"
+        alt="Luxury fishing yacht on golden ocean horizon"
+        class="booking-experience-bg absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0E2A3A]/80 via-[#0E2A3A]/60 to-transparent"></div>
+      <div class="booking-experience-reflect absolute inset-0"></div>
+
+      <div class="relative z-10 flex min-h-[80vh] items-center p-5 sm:p-8 lg:p-10">
+        <article
+          class="booking-experience-panel w-full max-w-xl rounded-3xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur-xl sm:p-8 lg:-translate-x-5">
+          <p class="text-xs uppercase tracking-[0.28em] text-cyan-100">The Charter Experience</p>
+          <h2 class="mt-3 font-display text-3xl font-bold text-slate-100 sm:text-4xl">The Charter Experience</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate-100/90 sm:text-base">From dockside departure to open-sea
+            triumph, every journey is crafted with precision, comfort, and elite maritime expertise.</p>
+
+          <ul class="mt-6 space-y-3">
+            <li data-exp-item
+              class="inline-flex w-full items-center gap-3 rounded-xl border border-slate-100/20 bg-slate-900/25 px-3 py-2 text-sm text-slate-100">
+              <span class="h-2.5 w-2.5 rounded-full bg-cyan-200/80"></span>
+              Private Yacht-Level Comfort
+            </li>
+            <li data-exp-item
+              class="inline-flex w-full items-center gap-3 rounded-xl border border-slate-100/20 bg-slate-900/25 px-3 py-2 text-sm text-slate-100">
+              <span class="h-2.5 w-2.5 rounded-full bg-cyan-200/80"></span>
+              Professional Licensed Captains
+            </li>
+            <li data-exp-item
+              class="inline-flex w-full items-center gap-3 rounded-xl border border-slate-100/20 bg-slate-900/25 px-3 py-2 text-sm text-slate-100">
+              <span class="h-2.5 w-2.5 rounded-full bg-cyan-200/80"></span>
+              Premium Fishing Equipment
+            </li>
+            <li data-exp-item
+              class="inline-flex w-full items-center gap-3 rounded-xl border border-slate-100/20 bg-slate-900/25 px-3 py-2 text-sm text-slate-100">
+              <span class="h-2.5 w-2.5 rounded-full bg-cyan-200/80"></span>
+              Safety-First Operations
+            </li>
+          </ul>
+
+          <a href="services.html"
+            class="booking-exp-cta mt-7 flex w-fit mx-auto rounded-xl bg-[#0E2A3A] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#7ECDED] transition hover:bg-[#0A2230]">
+            View Trip Options
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section
+      class="mt-10 booking-timeline-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:p-10"
+      data-reservation-timeline>
+      <svg class="booking-timeline-compass" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="86" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="100" cy="100" r="64" fill="none" stroke="currentColor" stroke-width="1.2" />
+        <path d="M100 34 L118 100 L100 166 L82 100 Z" fill="none" stroke="currentColor" stroke-width="1.8" />
+      </svg>
+
+      <div class="relative z-10 text-center">
+        <p class="text-xs uppercase tracking-[0.26em] text-[#0E2A3A]/80">Reservation Flow</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Seamless Reservation Process</h2>
+      </div>
+
+      <div class="relative z-10 mt-10">
+        <div class="booking-timeline-line hidden md:block">
+          <span class="booking-timeline-progress"></span>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="booking-step-card" data-timeline-step>
+            <div class="mx-auto flex w-fit flex-col items-center">
+              <span class="booking-step-number" data-step-number>1</span>
+              <span class="mt-2 h-10 w-px bg-[#0E2A3A]/30"></span>
+            </div>
+            <h3 class="mt-4 font-display text-2xl font-semibold">Select Your Charter</h3>
+            <p class="mt-2 text-sm text-[#0E2A3A]/85">Choose from curated offshore, sport, and sunset experiences
+              tailored to your group.</p>
+          </article>
+
+          <article class="booking-step-card" data-timeline-step>
+            <div class="mx-auto flex w-fit flex-col items-center">
+              <span class="booking-step-number" data-step-number>2</span>
+              <span class="mt-2 h-10 w-px bg-[#0E2A3A]/30"></span>
+            </div>
+            <h3 class="mt-4 font-display text-2xl font-semibold">Choose Date & Captain</h3>
+            <p class="mt-2 text-sm text-[#0E2A3A]/85">Lock your preferred departure window and match with an elite
+              licensed captain.</p>
+          </article>
+
+          <article class="booking-step-card" data-timeline-step>
+            <div class="mx-auto flex w-fit flex-col items-center">
+              <span class="booking-step-number" data-step-number>3</span>
+              <span class="mt-2 h-10 w-px bg-[#0E2A3A]/30"></span>
+            </div>
+            <h3 class="mt-4 font-display text-2xl font-semibold">Confirm & Prepare for Departure</h3>
+            <p class="mt-2 text-sm text-[#0E2A3A]/85">Finalize details, complete payment, and receive departure
+              preparation guidance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-10 booking-enhancements-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:p-10"
+      data-enhancements-section>
+      <svg class="enh-fish enh-fish-a" viewBox="0 0 120 60" aria-hidden="true">
+        <path
+          d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"
+          fill="none" stroke="currentColor" stroke-width="2.1" />
+      </svg>
+      <svg class="enh-fish enh-fish-b" viewBox="0 0 120 60" aria-hidden="true">
+        <path
+          d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"
+          fill="none" stroke="currentColor" stroke-width="2.1" />
+      </svg>
+
+      <div class="relative z-10 mb-7">
+        <p class="text-xs uppercase tracking-[0.26em] text-[#0E2A3A]/80">Upgrade Your Charter</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Exclusive Add-Ons & Enhancements</h2>
+      </div>
+
+      <div class="relative z-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+        <article
+          class="enh-card enh-shine group relative min-h-[27rem] overflow-hidden rounded-3xl border border-slate-200/20"
+          data-enh-card>
+          <img
+            src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1800&q=80&fm=webp"
+            alt="Sunset Champagne Charter" class="enh-image absolute inset-0 h-full w-full object-cover" loading="lazy"
+            onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/90 via-[#0E2A3A]/45 to-transparent"></div>
+          <div class="absolute inset-0 enh-grain"></div>
+          <div class="absolute bottom-0 p-7">
+            <span
+              class="enh-price mb-4 inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-100">From
+              $580</span>
+            <h3 class="font-display text-3xl font-semibold text-white"
+              style="text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: white !important;">Sunset Champagne Charter</h3>
+            <p class="mt-3 text-sm text-slate-100"
+              style="text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: white !important;">Golden-hour route extension with
+              curated champagne service and
+              cinematic horizon cruising.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span
+                class="enh-price inline-flex rounded-full border border-cyan-200/40 bg-cyan-300/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-cyan-100">Extended
+                Deep Sea Hours +$460</span>
+            </div>
+            <button type="button"
+              class="mt-5 rounded-xl bg-[#0E2A3A] px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#7ECDED] transition hover:bg-[#0A2230]">Add
+              to Booking</button>
+          </div>
+        </article>
+
+        <div class="space-y-5">
+          <article
+            class="enh-card enh-shine group relative min-h-[13rem] overflow-hidden rounded-3xl border border-slate-200/20"
+            data-enh-card>
+            <img
+              src="https://images.unsplash.com/photo-1517498327491-f903e1e281cd?auto=format&fit=crop&w=1400&q=80&fm=webp"
+              alt="Live Bait Service" class="enh-image absolute inset-0 h-full w-full object-cover" loading="lazy"
+              onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/90 via-[#0E2A3A]/45 to-transparent"></div>
+            <div class="absolute inset-0 enh-grain"></div>
+            <div class="absolute bottom-0 p-6">
+              <span
+                class="enh-price mb-3 inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-cyan-100">+$120</span>
+              <h3 class="font-display text-2xl font-semibold text-white"
+                style="text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: white !important;">Live Bait Service</h3>
+              <p class="mt-2 text-sm text-slate-100"
+                style="text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: white !important;">Fresh premium bait prep timed
+                for your exact target species.</p>
+              <button type="button"
+                class="mt-4 rounded-xl bg-[#0E2A3A] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#7ECDED] transition hover:bg-[#0A2230]">Add
+                to Booking</button>
+            </div>
+          </article>
+
+          <article
+            class="enh-card enh-shine group relative min-h-[13rem] overflow-hidden rounded-3xl border border-slate-200/20"
+            data-enh-card>
+            <img
+              src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1400&q=80&fm=webp"
+              alt="Private Fillet and Packaging" class="enh-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" onerror="this.onerror=null;this.src='assets/images/route-placeholder.svg';" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/90 via-[#0E2A3A]/45 to-transparent"></div>
+            <div class="absolute inset-0 enh-grain"></div>
+            <div class="absolute bottom-0 p-6">
+              <span
+                class="enh-price mb-3 inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-cyan-100">+$210</span>
+              <h3 class="font-display text-2xl font-semibold text-white"
+                style="text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: white !important;">Private Fillet & Packaging
+              </h3>
+              <p class="mt-2 text-sm text-slate-100"
+                style="text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: white !important;">Chef-grade filleting, premium
+                vacuum packaging, and cold-chain prep
+                for travel.</p>
+              <button type="button"
+                class="mt-4 rounded-xl bg-[#0E2A3A] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#7ECDED] transition hover:bg-[#0A2230]">Add
+                to Booking</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+      <article class="fullcalendar-skin calendar-rtl rounded-3xl border border-slate-200/10 bg-slate-900/50 p-4 sm:p-6"
+        data-fade>
+        <div id="booking-calendar"></div>
+      </article>
+
+      <aside class="space-y-8" data-fade>
+        <div class="glass rounded-3xl bg-sky-300/10 p-8 sm:p-10 border-sky-400/20 shadow-xl">
+          <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Instant Reservation</h2>
+          <p class="mt-3 text-sm text-slate-800 dark:text-slate-200">Use the calendar or launch the multi-step flow to
+            reserve your
+            preferred trip package.</p>
+          <button id="open-booking-modal"
+            class="mt-6 w-full rounded-xl bg-gradient-to-r from-sky-400 to-cyan-300 px-5 py-4 text-sm font-bold uppercase tracking-[0.16em] text-slate-950 transition hover:scale-[1.02] hover:brightness-110 shadow-lg shadow-sky-500/25">
+            Launch Booking Flow
+          </button>
+        </div>
+
+        <div class="glass rounded-3xl p-8 sm:p-10">
+          <h3 class="font-display text-xl font-semibold">Why Guests Choose Us</h3>
+          <ul class="mt-4 space-y-3 text-sm text-slate-200">
+            <li class="rounded-xl border border-slate-200/15 bg-slate-900/30 px-3 py-2">Real-time captain availability
+              with day-level pricing</li>
+            <li class="rounded-xl border border-slate-200/15 bg-slate-900/30 px-3 py-2">Multi-step booking with add-ons
+              and deposit options</li>
+            <li class="rounded-xl border border-slate-200/15 bg-slate-900/30 px-3 py-2">Secure checkout pathways
+              prepared for Stripe and PayPal</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="booking-modal" data-current-step="0"
+    class="fixed inset-0 z-[90] hidden overflow-y-auto bg-slate-950/80 p-4 backdrop-blur-sm sm:p-8">
+    <div class="mx-auto max-w-4xl rounded-3xl border border-slate-200/20 bg-slate-900/95 p-4 shadow-2xl sm:p-6">
+      <div class="mb-5 flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-sky-200">Multi-Step Booking</p>
+          <h2 class="font-display text-2xl font-bold">Luxury Charter Configuration</h2>
+        </div>
+        <button data-close-booking class="rounded-xl border border-slate-600 px-3 py-2 text-xs">Close</button>
+      </div>
+
+      <div class="mb-6 flex items-center gap-3">
+        <span data-step-indicator class="h-2 flex-1 rounded-full bg-sky-300"></span>
+        <span data-step-indicator class="h-2 flex-1 rounded-full bg-slate-300/25"></span>
+        <span data-step-indicator class="h-2 flex-1 rounded-full bg-slate-300/25"></span>
+        <span data-step-indicator class="h-2 flex-1 rounded-full bg-slate-300/25"></span>
+      </div>
+
+      <section data-step>
+        <div class="grid gap-4 md:grid-cols-2">
+          <label class="text-sm">
+            Trip Type
+            <select id="trip-type" class="mt-2 w-full rounded-xl border border-slate-600 bg-slate-950/60 px-3 py-2">
+              <option value="offshore">Offshore Elite</option>
+              <option value="deepsea">Deep Sea Masterclass</option>
+              <option value="sport">Sport Tournament</option>
+              <option value="sunset">Sunset Prestige Cruise</option>
+            </select>
+          </label>
+          <label class="text-sm">
+            Guests
+            <input id="guest-count" type="number" min="1" max="10" value="2"
+              class="mt-2 w-full rounded-xl border border-slate-600 bg-slate-950/60 px-3 py-2" />
+          </label>
+          <label class="text-sm">
+            Duration (hours)
+            <input id="trip-duration" type="number" min="4" max="14" value="6"
+              class="mt-2 w-full rounded-xl border border-slate-600 bg-slate-950/60 px-3 py-2" />
+          </label>
+          <div class="text-sm">
+            Selected Date
+            <div class="mt-2 rounded-xl border border-slate-600 bg-slate-950/60 px-3 py-2" id="selected-date-display">
+              Not selected</div>
+          </div>
+        </div>
+      </section>
+
+      <section data-step class="hidden">
+        <h3 class="font-display text-xl font-semibold">Add-ons</h3>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          <label class="flex items-center gap-3 rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-3 text-sm">
+            <input type="checkbox" value="gourmet" data-addon class="h-4 w-4 rounded border-slate-500 bg-slate-900" />
+            Gourmet onboard dining (+$140)
+          </label>
+          <label class="flex items-center gap-3 rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-3 text-sm">
+            <input type="checkbox" value="premium_gear" data-addon
+              class="h-4 w-4 rounded border-slate-500 bg-slate-900" />
+            Premium tackle upgrade (+$120)
+          </label>
+          <label class="flex items-center gap-3 rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-3 text-sm">
+            <input type="checkbox" value="drone" data-addon class="h-4 w-4 rounded border-slate-500 bg-slate-900" />
+            Cinematic drone footage (+$90)
+          </label>
+          <label class="flex items-center gap-3 rounded-xl border border-slate-600 bg-slate-950/50 px-3 py-3 text-sm">
+            <input type="checkbox" value="transfer" data-addon class="h-4 w-4 rounded border-slate-500 bg-slate-900" />
+            Private marina transfer (+$80)
+          </label>
+        </div>
+      </section>
+
+      <section data-step class="hidden">
+        <h3 class="font-display text-xl font-semibold">Payment Options</h3>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div class="rounded-2xl border border-slate-600 bg-slate-950/50 p-4">
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Plan</p>
+            <label class="mt-3 flex items-center gap-3 text-sm"><input type="radio" name="payment-plan" value="deposit"
+                checked class="h-4 w-4" /> 30% Deposit</label>
+            <label class="mt-2 flex items-center gap-3 text-sm"><input type="radio" name="payment-plan" value="full"
+                class="h-4 w-4" /> Full Payment</label>
+          </div>
+
+          <div class="rounded-2xl border border-slate-600 bg-slate-950/50 p-4">
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Gateway</p>
+            <label class="mt-3 flex items-center gap-3 text-sm"><input type="radio" name="gateway" value="stripe"
+                checked class="h-4 w-4" /> Stripe</label>
+            <label class="mt-2 flex items-center gap-3 text-sm"><input type="radio" name="gateway" value="paypal"
+                class="h-4 w-4" /> PayPal</label>
+          </div>
+
+          <div class="md:col-span-2 rounded-2xl border border-slate-600 bg-slate-950/50 p-4">
+            <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Promo Code</p>
+            <div class="mt-3 flex gap-3">
+              <input id="promo-code" type="text" placeholder="Enter code"
+                class="w-full rounded-xl border border-slate-600 bg-slate-950/80 px-3 py-2 text-sm uppercase" />
+              <button id="apply-promo" type="button"
+                class="rounded-xl border border-sky-300/40 bg-sky-300/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em]">Apply</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-step class="hidden">
+        <h3 class="font-display text-xl font-semibold">Review & Confirm</h3>
+        <div class="mt-4 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="rounded-2xl border border-slate-600 bg-slate-950/50 p-4 text-sm">
+            <dl class="space-y-2 text-slate-200">
+              <div class="flex justify-between gap-2">
+                <dt>Date</dt>
+                <dd id="summary-date" class="font-semibold text-slate-100">Not selected</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Trip</dt>
+                <dd id="summary-trip" class="font-semibold text-slate-100">offshore</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Guests</dt>
+                <dd id="summary-guests" class="font-semibold text-slate-100">2</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Duration</dt>
+                <dd id="summary-duration" class="font-semibold text-slate-100">6 hrs</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Add-ons</dt>
+                <dd id="summary-addons" class="font-semibold text-slate-100">None</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Subtotal</dt>
+                <dd id="summary-subtotal" class="font-semibold text-slate-100">$0</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Add-ons Total</dt>
+                <dd id="summary-addons-price" class="font-semibold text-slate-100">$0</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Discount</dt>
+                <dd id="summary-discount" class="font-semibold text-emerald-300">-$0</dd>
+              </div>
+              <div class="flex justify-between gap-2 border-t border-slate-600 pt-2">
+                <dt>Total</dt>
+                <dd id="summary-total" class="font-semibold text-sky-200">$0</dd>
+              </div>
+              <div class="flex justify-between gap-2">
+                <dt>Due Now</dt>
+                <dd id="summary-due" class="font-semibold text-amber-200">$0</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="space-y-4">
+            <div id="stripe-panel"
+              class="rounded-2xl border border-slate-600 bg-slate-950/50 p-4 text-sm text-slate-200">
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Stripe Checkout</p>
+              <p class="mt-2">Secure card processing is prepared. Connect a backend checkout session endpoint for live
+                transactions.</p>
+            </div>
+            <div id="paypal-panel" class="hidden rounded-2xl border border-slate-600 bg-slate-950/50 p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-400">PayPal</p>
+              <div id="paypal-button-container" class="mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="mt-6 flex flex-wrap justify-between gap-3">
+        <button id="prev-step" type="button"
+          class="rounded-xl border border-slate-600 px-4 py-2 text-sm">Previous</button>
+        <div class="flex gap-3">
+          <button id="next-step" type="button"
+            class="rounded-xl border border-sky-300/40 bg-sky-300/15 px-5 py-2 text-sm font-semibold">Next Step</button>
+          <button id="confirm-booking" type="button"
+            class="hidden rounded-xl bg-gradient-to-r from-emerald-300 to-cyan-300 px-5 py-2 text-sm font-semibold text-slate-950">Confirm
+            Booking</button>
+          <button data-close-booking type="button"
+            class="rounded-xl border border-slate-600 px-4 py-2 text-sm">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="premium-footer-shell px-4 pb-6 pt-10 sm:px-6 lg:px-10">
+    <div class="mx-auto max-w-7xl 2xl:max-w-[90rem]">
+      <div class="premium-footer-top grid gap-8 p-6 sm:p-8 lg:grid-cols-4 lg:p-10">
+        <div>
+          <a href="index.html" class="premium-footer-brand inline-flex items-center gap-3">
+            <span
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0E2A3A]/25 bg-white/45">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+              </svg>
+            </span>
+            AURELIUS
+          </a>
+          <p class="premium-footer-copy mt-4">Luxury yacht charter journeys engineered for precision, comfort, and
+            cinematic open-water moments.</p>
+          <div class="mt-5 flex items-center gap-3">
+            <a href="#" class="premium-footer-social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" class="premium-footer-social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M8 10v7M8 7h.01M12 17v-4a3 3 0 0 1 6 0v4" />
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+              </svg>
+            </a>
+            <a href="#" class="premium-footer-social" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2.8" y="6.2" width="18.4" height="11.6" rx="3" />
+                <path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="premium-footer-heading">Quick Links</h3>
+          <ul class="premium-footer-list">
+            <li><a href="index.html" class="premium-footer-link">Home</a></li>
+            <li><a href="index-v2.html" class="premium-footer-link">Home V2</a></li>
+            <li><a href="booking.html" class="premium-footer-link">Booking</a></li>
+            <li><a href="services.html" class="premium-footer-link">Services</a></li>
+            <li><a href="gallery.html" class="premium-footer-link">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="premium-footer-heading">Visit & Contact</h3>
+          <div class="premium-footer-list premium-footer-meta">
+            <p>Pier 9, Marina Bay, Coastal District</p>
+            <p>+1 (305) 555-0148</p>
+            <p>concierge@aureliuscharters.com</p>
+            <p>Daily: 05:00 AM - 11:00 PM</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="premium-footer-heading">Newsletter</h3>
+          <p class="premium-footer-copy mt-3">Receive route insights, departure windows, and premium trip releases.</p>
+          <form class="mt-4 grid gap-3" data-demo-form>
+            <input type="email" required placeholder="Email address" class="premium-footer-input" />
+            <button type="submit" class="premium-footer-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="premium-footer-bottom mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p class="premium-footer-meta">(c) 2026 Aurelius. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <a href="#" class="premium-footer-policy">Privacy Policy</a>
+          <a href="#" class="premium-footer-policy">Terms of Service</a>
+          <a href="#" class="premium-footer-policy">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+  <script defer src="https://js.stripe.com/v3/"></script>
+  <script defer src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/pages.js"></script>
+  <script defer src="assets/js/booking-hero.js"></script>
+  <script defer src="assets/js/booking-sections.js"></script>
+  <script defer src="assets/js/booking.js"></script>
+</body>
+
+</html>

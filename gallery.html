@@ -1,345 +1,419 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" dir="ltr" class="antialiased">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Expeditions | OceanBound Gallery</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
-
-    <!-- Stylesheets -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/nautical.css">
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            DEFAULT: '#0284c7',
-                            dark: '#0369a1',
-                        },
-                        secondary: {
-                            DEFAULT: '#fb923c',
-                            dark: '#ea580c',
-                        },
-                        accent: '#1e3a8a',
-                        neutral: {
-                            sandy: '#fef3c7',
-                            driftwood: '#78716c',
-                        },
-                        aqua: '#14b8a6',
-                        coral: '#ef4444',
-                    }
-                }
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <title>Gallery | Aurelius Charters</title>
+  <meta name="description" content="Browse cinematic captures from luxury fishing charters and ocean expeditions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Sora', 'sans-serif']
+          }
         }
-    </script>
-    <style>
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 250px;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 1024px) {
-            .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .bento-grid {
-                grid-template-columns: 1fr;
-                grid-auto-rows: auto;
-            }
-        }
-
-        .polaroid {
-            background: white;
-            padding: 1rem 1rem 3rem 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transform: rotate(-2deg);
-            transition: all 0.5s ease;
-        }
-
-        .polaroid:hover {
-            transform: rotate(0deg) scale(1.05);
-            z-index: 20;
-        }
-
-        .reveal-view {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .reveal-view.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/app.css" />
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-900 overflow-x-hidden">
-    <!-- Ambient Sea Decorations -->
-    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
+<body class="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-40 border-b border-slate-200/10 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto flex w-[95%] max-w-7xl 2xl:max-w-[90rem] items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+          </svg>
+        </span>
+        <span class="font-display text-sm font-semibold tracking-[0.24em] text-sky-100 sm:text-base">AURELIUS</span>
+      </a>
+      <button data-menu-toggle="site-menu"
+        class="rounded-xl border border-slate-700 px-3 py-2 text-xs lg:hidden">Menu</button>
+      <nav id="site-menu"
+        class="absolute inset-x-4 top-16 hidden rounded-2xl glass p-4 lg:static lg:block lg:rounded-none lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+        <ul class="flex flex-col gap-2 text-sm lg:flex-row lg:items-center lg:gap-2">
+          <li><a data-nav-link href="index.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Home</a></li>
+          <li><a data-nav-link href="index-v2.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Home V2</a></li>
+          <li><a data-nav-link href="booking.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Booking</a></li>
+          <li><a data-nav-link href="services.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Services</a></li>
+          <li><a data-nav-link href="gallery.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Gallery</a></li>
+          <li><a data-nav-link href="blog.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Blog</a></li>
+          <li><a data-nav-link href="contact.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Contact</a></li>
+          <li><a data-nav-link href="dashboard.html"
+              class="rounded-lg border border-sky-300/30 bg-sky-300/10 px-3 py-2 text-sky-100">Dashboard</a></li>
+          <li><a data-nav-link href="login.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Login</a></li>
+          <li><a data-nav-link href="signup.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Sign Up</a></li>
+          <li class="flex gap-2 pt-2 lg:pt-0">
+            <button data-toggle-theme class="rounded-lg border border-slate-300/30 px-3 py-2 text-xs">Theme: <span
+                data-theme-label>Dark</span></button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <header id="main-header"></header>
+  <main class="mx-auto w-[95%] max-w-7xl 2xl:max-w-[90rem] pb-20 pt-10">
+    <section
+      class="gallery-cinematic-hero relative isolate lg:min-h-[88vh] overflow-hidden rounded-3xl border border-slate-200/20"
+      data-gallery-hero>
+      <div class="grid lg:min-h-[88vh] lg:grid-cols-[0.94fr_1.06fr]">
+        <article class="relative z-20 flex items-center p-8 sm:p-10 lg:p-14">
+          <div class="max-w-xl">
+            <p class="gallery-hero-kicker text-xs uppercase tracking-[0.32em]">Luxury Maritime Documentary</p>
+            <h1 id="gallery-hero-title"
+              class="mt-4 font-display text-4xl font-bold leading-[0.95] sm:text-5xl lg:text-[3.45rem]">A Cinematic
+              Archive of Offshore Excellence</h1>
+            <div class="gallery-hero-accent mt-6 h-[2px] w-28 rounded-full"></div>
+            <p id="gallery-hero-subtitle" class="mt-6 max-w-lg text-sm leading-relaxed sm:text-base">From dawn
+              departures to trophy-water returns, each frame captures precision seamanship, elite hospitality, and the
+              mood of open-ocean ambition.</p>
+          </div>
+        </article>
 
-    <main class="pt-20">
-        <!-- Section 1: The Lens of Adventure (Hero Collage) -->
-        <section class="py-24 relative flex items-center justify-center overflow-hidden">
-            <!-- Background Texture -->
-            <div class="absolute inset-0 z-0 opacity-5">
-                <div
-                    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] bg-[size:40px_40px]">
-                </div>
+        <div class="relative h-64 sm:h-80 lg:h-auto overflow-hidden">
+          <div id="gallery-hero-clip" class="relative h-full lg:absolute lg:inset-0">
+            <img id="gallery-hero-image"
+              src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=2200&q=80&fm=webp"
+              alt="Luxury yacht cutting through open ocean" class="absolute inset-0 h-full w-full object-cover"
+              loading="eager" />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-l from-[#0E2A3A]/66 via-[#0E2A3A]/34 to-transparent"></div>
+          <div class="gallery-hero-grain absolute inset-0"></div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-12 gallery-story-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:p-10"
+      data-story-grid>
+      <div class="mb-8 sm:mb-10">
+        <p class="text-xs uppercase tracking-[0.28em] text-[#0E2A3A]/75 dark:text-sky-200/80">Immersive Scroll Story
+          Grid</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">Expeditions
+          Told in Editorial Motion</h2>
+      </div>
+
+      <div class="space-y-8 lg:space-y-10">
+        <article class="gallery-story-row grid gap-5 lg:grid-cols-[1.08fr_0.92fr]" data-story-row data-direction="left">
+          <figure
+            class="story-media group relative min-h-[19rem] overflow-hidden rounded-3xl border border-slate-200/20">
+            <img
+              src="https://images.unsplash.com/photo-1562281302-809108fd533c?auto=format&fit=crop&w=1800&q=80&fm=webp"
+              alt="Yacht at golden hour horizon" class="story-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/42 to-transparent"></div>
+          </figure>
+          <div class="story-copy rounded-3xl border border-slate-200/20 p-6 sm:p-7">
+            <p class="text-xs uppercase tracking-[0.2em] text-[#0E2A3A]/70 dark:text-sky-200/75">Chapter One</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold text-[#0E2A3A] dark:text-slate-100">Departure Under
+              Glass-Light Skies</h3>
+            <p class="mt-4 text-sm leading-relaxed text-[#0E2A3A]/85 dark:text-slate-200">Dockside choreography begins
+              with concierge precision, route plotting, and tide-timed launch windows designed for prime offshore
+              conditions.</p>
+          </div>
+        </article>
+
+        <article class="gallery-story-row grid gap-5 lg:grid-cols-[0.92fr_1.08fr]" data-story-row
+          data-direction="right">
+          <div class="story-copy order-2 rounded-3xl border border-slate-200/20 p-6 sm:p-7 lg:order-1">
+            <p class="text-xs uppercase tracking-[0.2em] text-[#0E2A3A]/70 dark:text-sky-200/75">Chapter Two</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold text-[#0E2A3A] dark:text-slate-100">Tactical Pursuit
+              Across Blue-Water Corridors</h3>
+            <p class="mt-4 text-sm leading-relaxed text-[#0E2A3A]/85 dark:text-slate-200">Captain-led sonar reading and
+              current adaptation turn open sea into a high-clarity strategy map for every cast and run.</p>
+          </div>
+          <figure
+            class="story-media group order-1 relative min-h-[19rem] overflow-hidden rounded-3xl border border-slate-200/20 lg:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1517498327491-f903e1e281cd?auto=format&fit=crop&w=1800&q=80&fm=webp"
+              alt="Open sea fishing pursuit" class="story-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/42 to-transparent"></div>
+          </figure>
+        </article>
+
+        <article class="gallery-story-row grid gap-5 lg:grid-cols-[1.08fr_0.92fr]" data-story-row data-direction="left">
+          <figure
+            class="story-media group relative min-h-[19rem] overflow-hidden rounded-3xl border border-slate-200/20">
+            <img
+              src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=1800&q=80&fm=webp"
+              alt="Luxury deck and sunset return" class="story-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/42 to-transparent"></div>
+          </figure>
+          <div class="story-copy rounded-3xl border border-slate-200/20 p-6 sm:p-7">
+            <p class="text-xs uppercase tracking-[0.2em] text-[#0E2A3A]/70 dark:text-sky-200/75">Chapter Three</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold text-[#0E2A3A] dark:text-slate-100">Return Sequence With
+              Trophy Narratives</h3>
+            <p class="mt-4 text-sm leading-relaxed text-[#0E2A3A]/85 dark:text-slate-200">Sunset re-entry, deckside
+              celebration, and refined post-charter service complete an ocean day with editorial elegance.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section
+      class="mt-12 gallery-catch-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:p-10"
+      data-catch-showcase>
+      <div class="mb-8 sm:mb-10">
+        <p class="text-xs uppercase tracking-[0.28em] text-[#0E2A3A]/75 dark:text-sky-200/80">Curated Catch Showcase</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">Hero Frames
+          With Floating Moments</h2>
+      </div>
+
+      <div class="relative min-h-[45rem] sm:min-h-[38rem]">
+        <figure
+          class="catch-card catch-main group absolute left-1/2 top-1/2 z-20 h-[58%] w-[88%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-3xl border border-slate-200/20 sm:h-[64%] sm:w-[72%]"
+          data-catch-card>
+          <img
+            src="https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=2000&q=80&fm=webp"
+            alt="Major catch moment onboard" class="catch-image absolute inset-0 h-full w-full object-cover"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/90 via-[#0E2A3A]/45 to-transparent"></div>
+          <figcaption class="catch-caption absolute bottom-0 z-10 p-6">
+            <p class="text-xs uppercase tracking-[0.22em] text-cyan-100"
+              style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Central Frame</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold text-white"
+              style="text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: white !important;">Blue-Water Triumph Sequence</h3>
+          </figcaption>
+        </figure>
+
+        <figure
+          class="catch-card catch-float-a group absolute left-[2%] top-[2%] z-30 h-[28%] w-[38%] overflow-hidden rounded-3xl border border-slate-200/20 sm:left-[8%] sm:top-[6%] sm:h-[32%] sm:w-[28%]"
+          data-catch-card data-floating data-tilt>
+          <img
+            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80&fm=webp"
+            alt="Ocean swells detail shot" class="catch-image absolute inset-0 h-full w-full object-cover"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/85 via-[#0E2A3A]/35 to-transparent"></div>
+          <figcaption class="catch-caption absolute bottom-0 z-10 p-4">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-cyan-50"
+              style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Surface Texture</p>
+          </figcaption>
+        </figure>
+
+        <figure
+          class="catch-card catch-float-b group absolute right-[2%] top-[4%] z-30 h-[26%] w-[36%] overflow-hidden rounded-3xl border border-slate-200/20 sm:right-[8%] sm:top-[10%] sm:h-[30%] sm:w-[27%]"
+          data-catch-card data-floating data-tilt>
+          <img
+            src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=1200&q=80&fm=webp"
+            alt="Golden hour sea horizon" class="catch-image absolute inset-0 h-full w-full object-cover"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/85 via-[#0E2A3A]/35 to-transparent"></div>
+          <figcaption class="catch-caption absolute bottom-0 z-10 p-4">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-cyan-50"
+              style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Return Light</p>
+          </figcaption>
+        </figure>
+
+        <figure
+          class="catch-card catch-float-c group absolute bottom-[2%] left-[3%] z-10 h-[27%] w-[34%] overflow-hidden rounded-3xl border border-slate-200/20 sm:bottom-[4%] sm:left-[12%] sm:h-[31%] sm:w-[25%]"
+          data-catch-card data-floating data-tilt>
+          <img
+            src="https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=1200&q=80&fm=webp"
+            alt="Underwater fish silhouette" class="catch-image absolute inset-0 h-full w-full object-cover"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/85 via-[#0E2A3A]/35 to-transparent"></div>
+          <figcaption class="catch-caption absolute bottom-0 z-10 p-4">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-cyan-50"
+              style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Deep Drift</p>
+          </figcaption>
+        </figure>
+
+        <figure
+          class="catch-card catch-float-d group absolute bottom-[3%] right-[3%] z-10 h-[26%] w-[38%] overflow-hidden rounded-3xl border border-slate-200/20 sm:bottom-[6%] sm:right-[12%] sm:h-[30%] sm:w-[27%]"
+          data-catch-card data-floating data-tilt>
+          <img
+            src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1200&q=80&fm=webp"
+            alt="Deck celebration portrait" class="catch-image absolute inset-0 h-full w-full object-cover"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/85 via-[#0E2A3A]/35 to-transparent"></div>
+          <figcaption class="catch-caption absolute bottom-0 z-10 p-4">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-cyan-50"
+              style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Deck Story</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="gallery-film-shell mt-12 w-full border-y border-slate-200/20 py-10" data-film-strip>
+      <div class="mx-auto w-[95%] max-w-7xl 2xl:max-w-[90rem]">
+        <div class="mb-7">
+          <p class="text-xs uppercase tracking-[0.28em] text-[#0E2A3A]/75 dark:text-sky-200/80">Ocean Moments Film Strip
+          </p>
+          <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">A
+            Horizontal Archive in Motion</h2>
+        </div>
+
+        <div
+          class="gallery-film-track flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 scroll-smooth scroll-px-10 px-[10vw] md:px-[25vw] lg:px-[35vw]">
+          <article
+            class="film-frame group relative h-[20rem] w-[74vw] shrink-0 snap-center overflow-hidden rounded-3xl border border-slate-200/20 sm:h-[21rem] sm:w-[52vw] lg:w-[36vw] xl:w-[30rem]"
+            data-film-frame>
+            <img
+              src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1600&q=80&fm=webp"
+              alt="Marina vessel detail" class="film-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/42 to-transparent"></div>
+            <div class="absolute bottom-0 z-10 p-6">
+              <p class="text-xs uppercase tracking-[0.2em] text-cyan-100">Frame 01</p>
+              <h3 class="mt-2 font-display text-2xl font-semibold text-slate-100">Marina Prelude</h3>
             </div>
+          </article>
 
-            <div class="container mx-auto px-4 z-10">
-                <div class="max-w-4xl mx-auto text-center mb-16">
-                    <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Documenting the
-                        Deep</span>
-                    <h1
-                        class="text-6xl md:text-8xl font-black text-accent dark:text-white mb-8 uppercase tracking-tighter">
-                        THE LENS OF <span class="text-secondary italic">ADVENTURE</span></h1>
-                    <p class="text-xl text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto">Capturing the raw
-                        tension, vibrant colors, and pure adrenaline of the Jupiter Inlet fishing scene.</p>
-                </div>
-
-                <!-- Creative Collage Wrapper -->
-                <div class="relative h-[400px] md:h-[600px] w-full max-w-6xl mx-auto flex items-center justify-center">
-                    <div
-                        class="absolute w-[30%] aspect-[4/5] left-0 top-0 rounded-[2rem] overflow-hidden shadow-2xl transform -rotate-6 group transition-transform hover:rotate-0 hover:z-30">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80"
-                            class="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Action">
-                    </div>
-                    <div
-                        class="absolute w-[45%] h-full z-10 rounded-[3rem] overflow-hidden shadow-4xl group transition-transform hover:scale-105 hover:z-40">
-                        <img src="https://images.unsplash.com/photo-1505506005708-f9e025965506?w=1200&q=80"
-                            class="w-full h-full object-cover transition-transform group-hover:scale-110"
-                            alt="Main Center">
-                        <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div
-                        class="absolute w-[30%] aspect-[3/4] right-0 bottom-0 rounded-[2rem] overflow-hidden shadow-2xl transform rotate-6 group transition-transform hover:rotate-0 hover:z-30">
-                        <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=600&q=80"
-                            class="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Catch">
-                    </div>
-                </div>
+          <article
+            class="film-frame group relative h-[20rem] w-[74vw] shrink-0 snap-center overflow-hidden rounded-3xl border border-slate-200/20 sm:h-[21rem] sm:w-[52vw] lg:w-[36vw] xl:w-[30rem]"
+            data-film-frame>
+            <img
+              src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1600&q=80&fm=webp"
+              alt="Open sea running yacht" class="film-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/42 to-transparent"></div>
+            <div class="absolute bottom-0 z-10 p-6">
+              <p class="text-xs uppercase tracking-[0.2em] text-cyan-100">Frame 02</p>
+              <h3 class="mt-2 font-display text-2xl font-semibold text-slate-100">Open-Water Velocity</h3>
             </div>
-        </section>
+          </article>
 
-        <!-- Section 2: The Mosaic of Titans (Bento Grid) -->
-        <section class="py-32 bg-white dark:bg-slate-950">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16 reveal-view">
-                    <h2 class="text-4xl md:text-5xl font-bold text-accent dark:text-white mb-4 uppercase">MOSAIC OF
-                        <span class="text-primary italic">TITANS</span></h2>
-                    <p class="text-slate-500 dark:text-slate-400">The hall of fame for our most legendary catches.</p>
-                </div>
-
-                <div class="bento-grid max-w-7xl mx-auto">
-                    <!-- Item 1 (Wide) -->
-                    <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-[2.5rem] reveal-view"
-                        style="transition-delay: 100ms">
-                        <img src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?w=800&q=80"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Marlin Release">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-accent/90 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
-                            <span class="text-secondary font-bold text-[10px] uppercase tracking-widest mb-2">Offshore
-                                Giant</span>
-                            <h3 class="text-2xl font-bold uppercase">The Midnight Release</h3>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="relative group overflow-hidden rounded-[2.5rem] reveal-view"
-                        style="transition-delay: 200ms">
-                        <img src="https://images.unsplash.com/photo-1544551763-8dd4ef715201?w=600&q=80"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Mahi Mahi">
-                        <div
-                            class="absolute inset-0 bg-accent/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="text-white font-bold uppercase tracking-widest text-sm">Prism Strike</span>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="relative group overflow-hidden rounded-[2.5rem] reveal-view"
-                        style="transition-delay: 300ms">
-                        <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?w=600&q=80"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Tuna">
-                    </div>
-                    <!-- Item 4 (Tall) -->
-                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2.5rem] reveal-view"
-                        style="transition-delay: 400ms">
-                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Gears">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-primary/80 via-transparent to-transparent flex flex-col p-8 text-white">
-                            <h3 class="text-lg font-bold uppercase">The Arsenal</h3>
-                        </div>
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="relative group overflow-hidden rounded-[2.5rem] reveal-view"
-                        style="transition-delay: 500ms">
-                        <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=80"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Vessel">
-                    </div>
-                </div>
+          <article
+            class="film-frame group relative h-[20rem] w-[74vw] shrink-0 snap-center overflow-hidden rounded-3xl border border-slate-200/20 sm:h-[21rem] sm:w-[52vw] lg:w-[36vw] xl:w-[30rem]"
+            data-film-frame>
+            <img
+              src="https://images.unsplash.com/photo-1517498327491-f903e1e281cd?auto=format&fit=crop&w=1600&q=80&fm=webp"
+              alt="Fishing gear close-up" class="film-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/42 to-transparent"></div>
+            <div class="absolute bottom-0 z-10 p-6">
+              <p class="text-xs uppercase tracking-[0.2em] text-cyan-100">Frame 03</p>
+              <h3 class="mt-2 font-display text-2xl font-semibold text-slate-100">Precision Deckwork</h3>
             </div>
-        </section>
+          </article>
 
-        <!-- Section 3: Cinema of the Seas (Video Highlights) -->
-        <section class="py-32 bg-accent">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-20 reveal-view">
-                    <span class="text-secondary font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Action in
-                        Motion</span>
-                    <h2 class="text-5xl md:text-6xl font-bold text-white mb-8 uppercase tracking-tighter">CINEMA OF THE
-                        <span class="italic">SEAS</span></h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                    <div class="relative group cursor-pointer reveal-view" style="transition-delay: 100ms">
-                        <div class="relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1505506005708-f9e025965506?w=800&q=80"
-                                class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-[2s]"
-                                alt="vid1">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div
-                                    class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-play text-white text-2xl"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-8 text-center">
-                            <h3 class="text-xl font-bold text-white uppercase tracking-widest mb-2">The Sailfish Dance
-                            </h3>
-                            <p class="text-blue-200 text-sm italic">High-speed underwater footage from Jupiter Inlet.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="relative group cursor-pointer reveal-view" style="transition-delay: 300ms">
-                        <div class="relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"
-                                class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-[2s]"
-                                alt="vid2">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div
-                                    class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-play text-white text-2xl"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-8 text-center">
-                            <h3 class="text-xl font-bold text-white uppercase tracking-widest mb-2">Night Hunt
-                                Chronicles</h3>
-                            <p class="text-blue-200 text-sm italic">Epic battle with a 120lb Silver King.</p>
-                        </div>
-                    </div>
-                </div>
+          <article
+            class="film-frame group relative h-[20rem] w-[74vw] shrink-0 snap-center overflow-hidden rounded-3xl border border-slate-200/20 sm:h-[21rem] sm:w-[52vw] lg:w-[36vw] xl:w-[30rem]"
+            data-film-frame>
+            <img
+              src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=1600&q=80&fm=webp"
+              alt="Sunset horizon across ocean" class="film-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/82 via-[#0E2A3A]/42 to-transparent"></div>
+            <div class="absolute bottom-0 z-10 p-6">
+              <p class="text-xs uppercase tracking-[0.2em] text-cyan-100">Frame 04</p>
+              <h3 class="mt-2 font-display text-2xl font-semibold text-slate-100">Afterlight Return</h3>
             </div>
-        </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        <!-- Section 4: The Guest's Eye (Polaroid Scatter) -->
-        <section class="py-32 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-20 reveal-view">
-                    <h2 class="text-4xl md:text-5xl font-bold text-accent dark:text-white mb-6 uppercase">THE GUEST'S
-                        <span class="text-secondary italic">EYE</span></h2>
-                    <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Real memories from real anglers.
-                        Your perspective, our tradition.</p>
-                </div>
+  <footer class="premium-footer-shell px-4 pb-6 pt-10 sm:px-6 lg:px-10">
+    <div class="mx-auto max-w-7xl 2xl:max-w-[90rem]">
+      <div class="premium-footer-top grid gap-8 p-6 sm:p-8 lg:grid-cols-4 lg:p-10">
+        <div>
+          <a href="index.html" class="premium-footer-brand inline-flex items-center gap-3">
+            <span
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0E2A3A]/25 bg-white/45">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+              </svg>
+            </span>
+            AURELIUS
+          </a>
+          <p class="premium-footer-copy mt-4">Luxury yacht charter journeys engineered for precision, comfort, and
+            cinematic open-water moments.</p>
+          <div class="mt-5 flex items-center gap-3">
+            <a href="#" class="premium-footer-social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" class="premium-footer-social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M8 10v7M8 7h.01M12 17v-4a3 3 0 0 1 6 0v4" />
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+              </svg>
+            </a>
+            <a href="#" class="premium-footer-social" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2.8" y="6.2" width="18.4" height="11.6" rx="3" />
+                <path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
+        </div>
 
-                <div class="flex flex-wrap justify-center gap-12 max-w-7xl mx-auto">
-                    <!-- Polaroid 1 -->
-                    <div class="polaroid reveal-view" style="transition-delay: 100ms; --rotation: -3deg">
-                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
-                            <img src="https://i.pravatar.cc/300?img=11" class="w-full h-full object-cover" alt="User">
-                        </div>
-                        <div class="px-2">
-                            <p class="font-bold text-accent text-lg">"First Redfish!"</p>
-                            <p class="text-xs text-slate-400 uppercase font-bold">- Mark D.</p>
-                        </div>
-                    </div>
-                    <!-- Polaroid 2 -->
-                    <div class="polaroid reveal-view" style="transition-delay: 300ms; transform: rotate(4deg)">
-                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
-                            <img src="https://i.pravatar.cc/300?img=20" class="w-full h-full object-cover" alt="User">
-                        </div>
-                        <div class="px-2">
-                            <p class="font-bold text-accent text-lg">"Sunrise Magic"</p>
-                            <p class="text-xs text-slate-400 uppercase font-bold">- Sarah L.</p>
-                        </div>
-                    </div>
-                    <!-- Polaroid 3 -->
-                    <div class="polaroid reveal-view" style="transition-delay: 500ms; transform: rotate(-2deg)">
-                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
-                            <img src="https://i.pravatar.cc/300?img=33" class="w-full h-full object-cover" alt="User">
-                        </div>
-                        <div class="px-2">
-                            <p class="font-bold text-accent text-lg">"The Big One"</p>
-                            <p class="text-xs text-slate-400 uppercase font-bold">- Robert K.</p>
-                        </div>
-                    </div>
-                    <!-- Polaroid 4 -->
-                    <div class="polaroid reveal-view" style="transition-delay: 700ms; transform: rotate(1deg)">
-                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
-                            <img src="https://i.pravatar.cc/300?img=45" class="w-full h-full object-cover" alt="User">
-                        </div>
-                        <div class="px-2">
-                            <p class="font-bold text-accent text-lg">"Fleet Shot"</p>
-                            <p class="text-xs text-slate-400 uppercase font-bold">- Jennifer V.</p>
-                        </div>
-                    </div>
-                </div>
+        <div>
+          <h3 class="premium-footer-heading">Quick Links</h3>
+          <ul class="premium-footer-list">
+            <li><a href="index.html" class="premium-footer-link">Home</a></li>
+            <li><a href="index-v2.html" class="premium-footer-link">Home V2</a></li>
+            <li><a href="booking.html" class="premium-footer-link">Booking</a></li>
+            <li><a href="services.html" class="premium-footer-link">Services</a></li>
+            <li><a href="gallery.html" class="premium-footer-link">Gallery</a></li>
+          </ul>
+        </div>
 
-                <div class="mt-24 text-center">
-                    <a href="contact.html"
-                        class="inline-block bg-accent dark:bg-white text-white dark:text-accent px-12 py-5 rounded-full font-bold shadow-2xl hover:scale-105 transition-all uppercase tracking-widest text-sm">Submit
-                        your memory</a>
-                </div>
-            </div>
-        </section>
-    </main>
+        <div>
+          <h3 class="premium-footer-heading">Visit & Contact</h3>
+          <div class="premium-footer-list premium-footer-meta">
+            <p>Pier 9, Marina Bay, Coastal District</p>
+            <p>+1 (305) 555-0148</p>
+            <p>concierge@aureliuscharters.com</p>
+            <p>Daily: 05:00 AM - 11:00 PM</p>
+          </div>
+        </div>
 
-    <footer id="main-footer"></footer>
+        <div>
+          <h3 class="premium-footer-heading">Newsletter</h3>
+          <p class="premium-footer-copy mt-3">Receive route insights, departure windows, and premium trip releases.</p>
+          <form class="mt-4 grid gap-3" data-demo-form>
+            <input type="email" required placeholder="Email address" class="premium-footer-input" />
+            <button type="submit" class="premium-footer-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
 
-    <script src="js/main.js"></script>
-    <script>
-        // Scroll Reveal Implementation
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+      <div class="premium-footer-bottom mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p class="premium-footer-meta">(c) 2026 Aurelius. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <a href="#" class="premium-footer-policy">Privacy Policy</a>
+          <a href="#" class="premium-footer-policy">Terms of Service</a>
+          <a href="#" class="premium-footer-policy">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal-view').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/pages.js"></script>
+  <script defer src="assets/js/gallery-rebuild.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="antialiased">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <title>Services | Aurelius Charters</title>
+  <meta name="description"
+    content="Explore luxury fishing charter services, concierge packages, and custom offshore expeditions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Sora', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+
+<body class="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-40 border-b border-slate-200/10 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto flex w-[95%] max-w-7xl 2xl:max-w-[90rem] items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-300/25 ring-1 ring-sky-200/30">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-sky-100" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+          </svg>
+        </span>
+        <span class="font-display text-sm font-semibold tracking-[0.24em] text-sky-100 sm:text-base">AURELIUS</span>
+      </a>
+      <button data-menu-toggle="site-menu"
+        class="rounded-xl border border-slate-700 px-3 py-2 text-xs lg:hidden">Menu</button>
+      <nav id="site-menu"
+        class="absolute inset-x-4 top-16 hidden rounded-2xl glass p-4 lg:static lg:block lg:rounded-none lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+        <ul class="flex flex-col gap-2 text-sm lg:flex-row lg:items-center lg:gap-2">
+          <li><a data-nav-link href="index.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Home</a></li>
+          <li><a data-nav-link href="index-v2.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Home V2</a></li>
+          <li><a data-nav-link href="booking.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Booking</a></li>
+          <li><a data-nav-link href="services.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Services</a></li>
+          <li><a data-nav-link href="gallery.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Gallery</a></li>
+          <li><a data-nav-link href="blog.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Blog</a></li>
+          <li><a data-nav-link href="contact.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Contact</a></li>
+          <li><a data-nav-link href="dashboard.html"
+              class="rounded-lg border border-sky-300/30 bg-sky-300/10 px-3 py-2 text-sky-100">Dashboard</a></li>
+          <li><a data-nav-link href="login.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Login</a></li>
+          <li><a data-nav-link href="signup.html"
+              class="rounded-lg border border-transparent px-3 py-2 hover:border-sky-300/30">Sign Up</a></li>
+          <li class="flex gap-2 pt-2 lg:pt-0">
+            <button data-toggle-theme class="rounded-lg border border-slate-300/30 px-3 py-2 text-xs">Theme: <span
+                data-theme-label>Dark</span></button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto w-[95%] max-w-7xl 2xl:max-w-[90rem] pb-20 pt-10">
+    <section
+      class="services-hero-shell relative isolate lg:min-h-[72vh] overflow-hidden rounded-3xl border border-slate-200/20"
+      data-services-hero>
+      <div class="grid lg:min-h-[72vh] gap-5 p-4 sm:p-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-0 lg:p-0">
+        <div class="relative z-10 flex items-center px-3 pb-2 pt-4 sm:px-5 sm:pb-4 sm:pt-6 lg:px-12 lg:py-12">
+          <div class="services-hero-copy max-w-xl">
+            <p class="services-hero-kicker text-xs uppercase tracking-[0.32em] text-[#0E2A3A]/75 dark:text-sky-200/80">
+              Premium Concierge</p>
+            <h1 id="services-hero-title"
+              class="mt-3 font-display text-4xl font-bold leading-tight text-[#0E2A3A] dark:text-slate-100 sm:text-5xl lg:text-[3.4rem] lg:leading-[0.96]">
+              Bespoke Maritime Experiences</h1>
+            <div class="services-hero-line mt-6 h-[2px] w-28 rounded-full bg-[#0E2A3A]/40 dark:bg-sky-200/50"></div>
+            <p id="services-hero-subtitle"
+              class="mt-6 max-w-lg text-sm leading-relaxed text-[#0E2A3A]/90 dark:text-slate-200 sm:text-base">
+              Crafted charter tiers, elite enhancements, and expedition-grade customization designed for those who
+              expect more from the sea.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative h-64 sm:h-80 lg:h-auto overflow-hidden rounded-3xl lg:rounded-l-none lg:rounded-r-3xl">
+          <img id="services-hero-image"
+            src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=2200&q=80&fm=webp"
+            alt="Luxury yacht cruising on clear ocean water" class="absolute inset-0 h-full w-full object-cover"
+            loading="eager" />
+          <div class="absolute inset-0 bg-gradient-to-l from-[#0E2A3A]/56 via-[#0E2A3A]/24 to-transparent"></div>
+          <div class="services-hero-reflection absolute inset-0"></div>
+        </div>
+      </div>
+
+      <article id="services-hero-cta"
+        class="relative z-20 mx-4 mt-6 lg:mt-0 rounded-3xl border border-[#0E2A3A]/20 bg-[#A5DFF1]/75 p-5 shadow-2xl backdrop-blur-xl dark:border-slate-200/20 dark:bg-slate-900/60 sm:mx-8 sm:p-6 lg:absolute lg:bottom-8 lg:right-8 lg:mx-0 lg:max-w-sm lg:p-7">
+        <p class="text-xs uppercase tracking-[0.22em] text-[#0E2A3A]/70 dark:text-sky-200/85">Handpicked Charter Layers
+        </p>
+        <h2 class="mt-3 font-display text-2xl font-semibold text-[#0E2A3A] dark:text-slate-100">Build Your Signature
+          Voyage</h2>
+        <p class="mt-3 text-sm leading-relaxed text-[#0E2A3A]/88 dark:text-slate-200">Select your base charter, apply
+          premium enhancements, and craft an experience tailored to your exact offshore intent.</p>
+        <a href="booking.html"
+          class="mt-5 flex w-fit mx-auto rounded-xl bg-[#0E2A3A] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#7ECDED] transition hover:bg-[#0A2230]">
+          Customize Charter
+        </a>
+      </article>
+    </section>
+
+    <section
+      class="mt-10 services-tiers-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-5 sm:p-8 lg:p-10"
+      data-charter-tiers>
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <article
+          class="tier-feature group relative min-h-[26rem] overflow-hidden rounded-3xl border border-slate-200/20">
+          <img
+            src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1900&q=80&fm=webp"
+            alt="Luxury yacht offshore charter tier"
+            class="tier-feature-image absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-br from-[#0E2A3A]/78 via-[#0E2A3A]/52 to-[#0E2A3A]/28"></div>
+          <div class="absolute inset-0 tier-feature-overlay"></div>
+          <div class="relative z-10 flex h-full items-end p-6 sm:p-8">
+            <div>
+              <p class="service-image-kicker text-xs uppercase tracking-[0.26em]">The Charter Tiers</p>
+              <h2
+                class="service-image-title mt-3 font-display text-3xl font-semibold leading-tight sm:text-4xl sm:leading-tight">
+                Curated Offshore Experiences, Engineered for Intent</h2>
+              <p class="service-image-copy mt-4 max-w-lg text-sm leading-relaxed">Each charter tier is
+                precision-configured with its own pace, comfort profile, and target strategy.</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="space-y-4">
+          <article class="service-tier-card rounded-3xl border border-slate-200/20 p-5 sm:p-6" data-tier-card>
+            <p class="text-xs uppercase tracking-[0.2em] text-[#0E2A3A]/70 dark:text-sky-200/80">Tier One</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold text-[#0E2A3A] dark:text-slate-100">Elite Offshore</h3>
+            <p class="mt-3 text-sm text-[#0E2A3A]/85 dark:text-slate-200">Long-range campaign planning, tournament-grade
+              tackle selection, and concierge-level deck service.</p>
+          </article>
+
+          <article class="service-tier-card rounded-3xl border border-slate-200/20 p-5 sm:p-6" data-tier-card>
+            <p class="text-xs uppercase tracking-[0.2em] text-[#0E2A3A]/70 dark:text-sky-200/80">Tier Two</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold text-[#0E2A3A] dark:text-slate-100">Family Prestige</h3>
+            <p class="mt-3 text-sm text-[#0E2A3A]/85 dark:text-slate-200">Balanced routing and elevated comfort with
+              tailored pacing for multi-generation guests.</p>
+          </article>
+
+          <article class="service-tier-card rounded-3xl border border-slate-200/20 p-5 sm:p-6" data-tier-card>
+            <p class="text-xs uppercase tracking-[0.2em] text-[#0E2A3A]/70 dark:text-sky-200/80">Tier Three</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold text-[#0E2A3A] dark:text-slate-100">Tournament Mode</h3>
+            <p class="mt-3 text-sm text-[#0E2A3A]/85 dark:text-slate-200">Performance-first charter built for
+              competitive precision, live pattern adaptation, and decisive execution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-10 services-concierge-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:p-10"
+      data-concierge-enhancements>
+      <svg class="concierge-fish concierge-fish-a" viewBox="0 0 120 60" aria-hidden="true">
+        <path
+          d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"
+          fill="none" stroke="currentColor" stroke-width="2.1" />
+      </svg>
+      <svg class="concierge-fish concierge-fish-b" viewBox="0 0 120 60" aria-hidden="true">
+        <path
+          d="M7 30c16-15 35-22 61-18 11 1 21 6 31 14-11 8-21 13-31 14-26 4-45-3-61-18zm63 0c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"
+          fill="none" stroke="currentColor" stroke-width="2.1" />
+      </svg>
+
+      <div class="relative z-10">
+        <p class="text-xs uppercase tracking-[0.26em] text-[#0E2A3A]/74 dark:text-sky-200/75">Concierge Enhancements</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">Elevate
+          Every Offshore Detail</h2>
+      </div>
+
+      <div class="relative z-10 mt-8 grid gap-5 lg:grid-cols-[1.18fr_0.82fr]">
+        <article
+          class="conc-card conc-shine group relative min-h-[27rem] overflow-hidden rounded-3xl border border-slate-200/20"
+          data-con-card data-slide="left">
+          <img
+            src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1900&q=80&fm=webp"
+            alt="Cinematic expedition coverage" class="conc-image absolute inset-0 h-full w-full object-cover"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/92 via-[#0E2A3A]/54 to-[#0E2A3A]/20"></div>
+          <div class="absolute inset-0 conc-grain"></div>
+          <div class="absolute bottom-0 p-7">
+            <p
+              class="service-overlay-chip inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]">
+              Featured Upgrade</p>
+            <h3 class="service-overlay-title mt-4 font-display text-3xl font-semibold text-white"
+              style="text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: white !important;">Cinematic Expedition Coverage
+            </h3>
+            <p class="service-overlay-copy mt-3 max-w-lg text-sm text-slate-100"
+              style="text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: white !important;">Multi-angle marine cinematography
+              with post-produced
+              storytelling for your entire charter journey.</p>
+            <p
+              class="service-overlay-chip mt-4 inline-flex rounded-full border border-cyan-200/45 bg-cyan-300/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]">
+              Sunset Champagne Charter</p>
+          </div>
+        </article>
+
+        <div class="space-y-5 lg:pt-7">
+          <article
+            class="conc-card conc-shine group relative min-h-[13rem] overflow-hidden rounded-3xl border border-slate-200/20"
+            data-con-card data-slide="right">
+            <img
+              src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1400&q=80&fm=webp"
+              alt="Private fillet and packaging service" class="conc-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/92 via-[#0E2A3A]/55 to-transparent"></div>
+            <div class="absolute inset-0 conc-grain"></div>
+            <div class="absolute bottom-0 p-6">
+              <h3 class="service-overlay-title font-display text-2xl font-semibold text-white"
+                style="text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: white !important;">Private Fillet & Packaging
+              </h3>
+              <p class="service-overlay-copy mt-2 text-sm text-slate-100"
+                style="text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: white !important;">Chef-standard catch preparation
+                with cold-chain ready
+                packaging for return travel.</p>
+            </div>
+          </article>
+
+          <article
+            class="conc-card conc-shine group relative min-h-[13rem] overflow-hidden rounded-3xl border border-slate-200/20"
+            data-con-card data-slide="left">
+            <img
+              src="https://images.unsplash.com/photo-1517498327491-f903e1e281cd?auto=format&fit=crop&w=1400&q=80&fm=webp"
+              alt="Live bait premium supply" class="conc-image absolute inset-0 h-full w-full object-cover"
+              loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/92 via-[#0E2A3A]/55 to-transparent"></div>
+            <div class="absolute inset-0 conc-grain"></div>
+            <div class="absolute bottom-0 p-6">
+              <h3 class="service-overlay-title font-display text-2xl font-semibold text-white"
+                style="text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: white !important;">Live Bait Premium Supply</h3>
+              <p class="service-overlay-copy mt-2 text-sm text-slate-100"
+                style="text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: white !important;">Curated bait inventory
+                synchronized to species, route depth,
+                and departure window.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-10 services-performance-shell relative isolate overflow-hidden rounded-3xl border border-slate-200/20 p-6 sm:p-8 lg:p-10"
+      data-performance-precision>
+      <div class="relative z-10">
+        <p class="text-xs uppercase tracking-[0.24em] text-[#0E2A3A]/74 dark:text-sky-200/75">Performance & Precision
+        </p>
+        <h2 class="mt-3 font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100 sm:text-4xl">Metrics That
+          Define Elite Operations</h2>
+        <div class="services-performance-line mt-6 h-[2px] w-40 rounded-full bg-[#0E2A3A]/35 dark:bg-sky-200/55"></div>
+      </div>
+
+      <div class="relative z-10 mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <article class="perf-card rounded-3xl border border-slate-200/20 p-5" data-perf-card>
+          <p class="perf-value font-display text-4xl font-semibold text-[#0E2A3A] dark:text-slate-100" data-counter
+            data-target="98" data-suffix="%">0%</p>
+          <h3 class="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#0E2A3A]/80 dark:text-sky-100">
+            Departure Reliability</h3>
+          <p class="mt-2 text-sm text-[#0E2A3A]/82 dark:text-slate-200">98% Departure Reliability</p>
+        </article>
+
+        <article class="perf-card rounded-3xl border border-slate-200/20 p-5" data-perf-card>
+          <p class="perf-value font-display text-4xl font-semibold text-[#0E2A3A] dark:text-slate-100" data-counter
+            data-target="15" data-suffix="+">0+</p>
+          <h3 class="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#0E2A3A]/80 dark:text-sky-100">Captain
+            Mastery</h3>
+          <p class="mt-2 text-sm text-[#0E2A3A]/82 dark:text-slate-200">15+ Years Captain Experience</p>
+        </article>
+
+        <article class="perf-card rounded-3xl border border-slate-200/20 p-5" data-perf-card>
+          <p class="perf-value font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100">AI + Sonar</p>
+          <h3 class="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#0E2A3A]/80 dark:text-sky-100">
+            Tactical Routing</h3>
+          <p class="mt-2 text-sm text-[#0E2A3A]/82 dark:text-slate-200">Advanced Sonar Intelligence</p>
+        </article>
+
+        <article class="perf-card rounded-3xl border border-slate-200/20 p-5" data-perf-card>
+          <p class="perf-value font-display text-3xl font-semibold text-[#0E2A3A] dark:text-slate-100">Priority</p>
+          <h3 class="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#0E2A3A]/80 dark:text-sky-100">
+            Dedicated Queue</h3>
+          <p class="mt-2 text-sm text-[#0E2A3A]/82 dark:text-slate-200">Priority Scheduling Access</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="premium-footer-shell px-4 pb-6 pt-10 sm:px-6 lg:px-10">
+    <div class="mx-auto max-w-7xl 2xl:max-w-[90rem]">
+      <div class="premium-footer-top grid gap-8 p-6 sm:p-8 lg:grid-cols-4 lg:p-10">
+        <div>
+          <a href="index.html" class="premium-footer-brand inline-flex items-center gap-3">
+            <span
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0E2A3A]/25 bg-white/45">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2v6m0 0l-2.5-2.5M12 8l2.5-2.5M12 8a8 8 0 100 14 8 8 0 000-14z" />
+              </svg>
+            </span>
+            AURELIUS
+          </a>
+          <p class="premium-footer-copy mt-4">Luxury yacht charter journeys engineered for precision, comfort, and
+            cinematic open-water moments.</p>
+          <div class="mt-5 flex items-center gap-3">
+            <a href="#" class="premium-footer-social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" class="premium-footer-social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M8 10v7M8 7h.01M12 17v-4a3 3 0 0 1 6 0v4" />
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+              </svg>
+            </a>
+            <a href="#" class="premium-footer-social" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2.8" y="6.2" width="18.4" height="11.6" rx="3" />
+                <path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="premium-footer-heading">Quick Links</h3>
+          <ul class="premium-footer-list">
+            <li><a href="index.html" class="premium-footer-link">Home</a></li>
+            <li><a href="index-v2.html" class="premium-footer-link">Home V2</a></li>
+            <li><a href="booking.html" class="premium-footer-link">Booking</a></li>
+            <li><a href="services.html" class="premium-footer-link">Services</a></li>
+            <li><a href="gallery.html" class="premium-footer-link">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="premium-footer-heading">Visit & Contact</h3>
+          <div class="premium-footer-list premium-footer-meta">
+            <p>Pier 9, Marina Bay, Coastal District</p>
+            <p>+1 (305) 555-0148</p>
+            <p>concierge@aureliuscharters.com</p>
+            <p>Daily: 05:00 AM - 11:00 PM</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="premium-footer-heading">Newsletter</h3>
+          <p class="premium-footer-copy mt-3">Receive route insights, departure windows, and premium trip releases.</p>
+          <form class="mt-4 grid gap-3" data-demo-form>
+            <input type="email" required placeholder="Email address" class="premium-footer-input" />
+            <button type="submit" class="premium-footer-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="premium-footer-bottom mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p class="premium-footer-meta">(c) 2026 Aurelius. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <a href="#" class="premium-footer-policy">Privacy Policy</a>
+          <a href="#" class="premium-footer-policy">Terms of Service</a>
+          <a href="#" class="premium-footer-policy">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/pages.js"></script>
+  <script defer src="assets/js/services-hero.js"></script>
+  <script defer src="assets/js/services-sections.js"></script>
+</body>
+
+</html>
