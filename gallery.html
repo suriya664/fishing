@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Gallery | OceanBound Charters</title>
+    <title>Visual Expeditions | OceanBound Gallery</title>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+
+    <!-- Stylesheets -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/nautical.css">
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -36,284 +41,305 @@
             }
         }
     </script>
+    <style>
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 250px;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+            }
+        }
+
+        .polaroid {
+            background: white;
+            padding: 1rem 1rem 3rem 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+            transition: all 0.5s ease;
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 20;
+        }
+
+        .reveal-view {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-view.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-900">
+<body class="bg-slate-50 dark:bg-slate-900 overflow-x-hidden">
     <!-- Ambient Sea Decorations -->
     <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
 
     <header id="main-header"></header>
 
-    <main class="pt-32 pb-24">
-        <div class="container mx-auto px-4">
-            <h1 class="text-6xl text-center text-accent dark:text-white mb-8 uppercase">VOYAGE MEMORIES</h1>
-            <p class="text-center text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-                Experience the thrill through the eyes of our guests. From trophy catches to unforgettable sunrises,
-                these moments capture the magic of fishing with OceanBound. Every photo tells a story of adventure,
-                achievement, and the incredible beauty of Jupiter's waters.
-            </p>
-
-            <!-- Social Proof -->
-            <div class="text-center mb-20">
-                <div class="flex items-center justify-center gap-8 flex-wrap">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-accent dark:text-white font-nautical">50,000+</div>
-                        <div class="text-sm text-slate-500 uppercase font-bold">Successful Charters</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-accent dark:text-white font-nautical">15,000+</div>
-                        <div class="text-sm text-slate-500 uppercase font-bold">Trophy Photos</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-accent dark:text-white font-nautical">5.0★</div>
-                        <div class="text-sm text-slate-500 uppercase font-bold">Average Rating</div>
-                    </div>
+    <main class="pt-20">
+        <!-- Section 1: The Lens of Adventure (Hero Collage) -->
+        <section class="py-24 relative flex items-center justify-center overflow-hidden">
+            <!-- Background Texture -->
+            <div class="absolute inset-0 z-0 opacity-5">
+                <div
+                    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] bg-[size:40px_40px]">
                 </div>
             </div>
 
-            <!-- Category Filter -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button
-                    class="bg-primary text-white px-6 py-3 rounded-full font-bold hover:bg-primary-dark transition-colors">
-                    All Photos
-                </button>
-                <button
-                    class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-full font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700">
-                    Trophy Catches
-                </button>
-                <button
-                    class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-full font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700">
-                    Offshore Action
-                </button>
-                <button
-                    class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-full font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700">
-                    Family Fun
-                </button>
-                <button
-                    class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-full font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700">
-                    Sunsets & Scenery
-                </button>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-20">
-                <!-- Gallery Item 1 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">Sea Hunter Fleet</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">Jupiter Inlet •
-                                Offshore</p>
-                            <p class="text-xs mt-2 text-blue-100">Our flagship 42' Yellowfin ready for adventure</p>
-                        </div>
-                    </div>
+            <div class="container mx-auto px-4 z-10">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Documenting the
+                        Deep</span>
+                    <h1
+                        class="text-6xl md:text-8xl font-black text-accent dark:text-white mb-8 uppercase tracking-tighter">
+                        THE LENS OF <span class="text-secondary italic">ADVENTURE</span></h1>
+                    <p class="text-xl text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto">Capturing the raw
+                        tension, vibrant colors, and pure adrenaline of the Jupiter Inlet fishing scene.</p>
                 </div>
 
-                <!-- Gallery Item 2 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <!-- Creative Collage Wrapper -->
+                <div class="relative h-[400px] md:h-[600px] w-full max-w-6xl mx-auto flex items-center justify-center">
                     <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">45lb Mahi Catch</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">The Gulf Stream</p>
-                            <p class="text-xs mt-2 text-blue-100">Trophy Mahi-Mahi caught by the Johnson family</p>
-                        </div>
+                        class="absolute w-[30%] aspect-[4/5] left-0 top-0 rounded-[2rem] overflow-hidden shadow-2xl transform -rotate-6 group transition-transform hover:rotate-0 hover:z-30">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80"
+                            class="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Action">
                     </div>
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">Sunset Cruise</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">Lighthouse Point</p>
-                            <p class="text-xs mt-2 text-blue-100">Perfect evening on the water with family</p>
-                        </div>
+                        class="absolute w-[45%] h-full z-10 rounded-[3rem] overflow-hidden shadow-4xl group transition-transform hover:scale-105 hover:z-40">
+                        <img src="https://images.unsplash.com/photo-1505506005708-f9e025965506?w=1200&q=80"
+                            class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                            alt="Main Center">
+                        <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">Release and Catch</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">Offshore Blue</p>
-                            <p class="text-xs mt-2 text-blue-100">Conservation-minded Sailfish release</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 5 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1502051907873-8c6d578e4c64?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">First Catch Ever!</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">Inshore Trip</p>
-                            <p class="text-xs mt-2 text-blue-100">Young angler's first Redfish - pure joy!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 6 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">Tournament Winner</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">Kingfish Slam</p>
-                            <p class="text-xs mt-2 text-blue-100">62lb King Mackerel - tournament champion</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 7 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">Triple Hookup</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">Mahi School</p>
-                            <p class="text-xs mt-2 text-blue-100">Three Mahi on at once - chaos and excitement!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 8 -->
-                <div class="aspect-square relative group overflow-hidden rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=600"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-6">
-                        <div class="text-center">
-                            <p class="font-bold text-lg mb-2">Night Tarpon Battle</p>
-                            <p class="text-xs uppercase tracking-widest font-bold text-blue-200">Bridge Lights</p>
-                            <p class="text-xs mt-2 text-blue-100">Epic 120lb Silver King under the stars</p>
-                        </div>
+                        class="absolute w-[30%] aspect-[3/4] right-0 bottom-0 rounded-[2rem] overflow-hidden shadow-2xl transform rotate-6 group transition-transform hover:rotate-0 hover:z-30">
+                        <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=600&q=80"
+                            class="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Catch">
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Testimonials Section -->
-            <div class="mb-20">
-                <h2 class="text-4xl font-bold text-accent dark:text-white mb-12 text-center uppercase">What Our Guests
-                    Say</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div
-                        class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700">
-                        <div class="flex text-yellow-500 mb-4">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+        <!-- Section 2: The Mosaic of Titans (Bento Grid) -->
+        <section class="py-32 bg-white dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 reveal-view">
+                    <h2 class="text-4xl md:text-5xl font-bold text-accent dark:text-white mb-4 uppercase">MOSAIC OF
+                        <span class="text-primary italic">TITANS</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400">The hall of fame for our most legendary catches.</p>
+                </div>
+
+                <div class="bento-grid max-w-7xl mx-auto">
+                    <!-- Item 1 (Wide) -->
+                    <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-[2.5rem] reveal-view"
+                        style="transition-delay: 100ms">
+                        <img src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?w=800&q=80"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Marlin Release">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-accent/90 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+                            <span class="text-secondary font-bold text-[10px] uppercase tracking-widest mb-2">Offshore
+                                Giant</span>
+                            <h3 class="text-2xl font-bold uppercase">The Midnight Release</h3>
                         </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6 italic leading-relaxed">
-                            "Best fishing experience of my life! Capt. John put us on multiple Sailfish and the crew was
-                            incredible. Already booked our next trip!"
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <img src="https://i.pravatar.cc/60?img=1" class="w-12 h-12 rounded-full">
-                            <div>
-                                <p class="font-bold text-accent dark:text-white">Michael T.</p>
-                                <p class="text-xs text-slate-400">Chicago, IL • Gulf Stream Deep</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="relative group overflow-hidden rounded-[2.5rem] reveal-view"
+                        style="transition-delay: 200ms">
+                        <img src="https://images.unsplash.com/photo-1544551763-8dd4ef715201?w=600&q=80"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Mahi Mahi">
+                        <div
+                            class="absolute inset-0 bg-accent/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-bold uppercase tracking-widest text-sm">Prism Strike</span>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="relative group overflow-hidden rounded-[2.5rem] reveal-view"
+                        style="transition-delay: 300ms">
+                        <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?w=600&q=80"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Tuna">
+                    </div>
+                    <!-- Item 4 (Tall) -->
+                    <div class="md:row-span-2 relative group overflow-hidden rounded-[2.5rem] reveal-view"
+                        style="transition-delay: 400ms">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Gears">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-primary/80 via-transparent to-transparent flex flex-col p-8 text-white">
+                            <h3 class="text-lg font-bold uppercase">The Arsenal</h3>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="relative group overflow-hidden rounded-[2.5rem] reveal-view"
+                        style="transition-delay: 500ms">
+                        <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=80"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Vessel">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Cinema of the Seas (Video Highlights) -->
+        <section class="py-32 bg-accent">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-20 reveal-view">
+                    <span class="text-secondary font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Action in
+                        Motion</span>
+                    <h2 class="text-5xl md:text-6xl font-bold text-white mb-8 uppercase tracking-tighter">CINEMA OF THE
+                        <span class="italic">SEAS</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div class="relative group cursor-pointer reveal-view" style="transition-delay: 100ms">
+                        <div class="relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1505506005708-f9e025965506?w=800&q=80"
+                                class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-[2s]"
+                                alt="vid1">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div
+                                    class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-play text-white text-2xl"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div
-                        class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700">
-                        <div class="flex text-yellow-500 mb-4">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6 italic leading-relaxed">
-                            "Perfect family trip! Capt. Sarah was so patient with our kids. They caught their first fish
-                            and can't stop talking about it. Highly recommend!"
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <img src="https://i.pravatar.cc/60?img=5" class="w-12 h-12 rounded-full">
-                            <div>
-                                <p class="font-bold text-accent dark:text-white">Jennifer L.</p>
-                                <p class="text-xs text-slate-400">Miami, FL • Inshore Lite</p>
-                            </div>
+                        <div class="mt-8 text-center">
+                            <h3 class="text-xl font-bold text-white uppercase tracking-widest mb-2">The Sailfish Dance
+                            </h3>
+                            <p class="text-blue-200 text-sm italic">High-speed underwater footage from Jupiter Inlet.
+                            </p>
                         </div>
                     </div>
-
-                    <div
-                        class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700">
-                        <div class="flex text-yellow-500 mb-4">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6 italic leading-relaxed">
-                            "The night Tarpon trip was bucket-list worthy! Caught a 140lb monster. Professional crew,
-                            top-notch equipment. Worth every penny!"
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <img src="https://i.pravatar.cc/60?img=8" class="w-12 h-12 rounded-full">
-                            <div>
-                                <p class="font-bold text-accent dark:text-white">Robert K.</p>
-                                <p class="text-xs text-slate-400">Atlanta, GA • Night Tarpon</p>
+                    <div class="relative group cursor-pointer reveal-view" style="transition-delay: 300ms">
+                        <div class="relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"
+                                class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-[2s]"
+                                alt="vid2">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div
+                                    class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-play text-white text-2xl"></i>
+                                </div>
                             </div>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <h3 class="text-xl font-bold text-white uppercase tracking-widest mb-2">Night Hunt
+                                Chronicles</h3>
+                            <p class="text-blue-200 text-sm italic">Epic battle with a 120lb Silver King.</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Instagram Feed CTA -->
-            <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl p-12 shadow-2xl mb-20">
-                <div class="text-center">
-                    <i class="fab fa-instagram text-6xl mb-6"></i>
-                    <h2 class="text-4xl font-bold mb-4 uppercase">Follow Our Adventures</h2>
-                    <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-                        See daily catch reports, behind-the-scenes action, and fishing tips on Instagram. Tag us in your
-                        photos for a chance to be featured!
-                    </p>
-                    <a href="https://instagram.com/oceanboundcharters" target="_blank"
-                        class="inline-block bg-white text-purple-600 px-12 py-5 rounded-full font-bold shadow-xl hover:bg-purple-50 transition-all uppercase text-lg">
-                        <i class="fab fa-instagram mr-3"></i>
-                        @OceanBoundCharters
-                    </a>
+        <!-- Section 4: The Guest's Eye (Polaroid Scatter) -->
+        <section class="py-32 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-20 reveal-view">
+                    <h2 class="text-4xl md:text-5xl font-bold text-accent dark:text-white mb-6 uppercase">THE GUEST'S
+                        <span class="text-secondary italic">EYE</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Real memories from real anglers.
+                        Your perspective, our tradition.</p>
                 </div>
-            </div>
 
-            <!-- Share Your Story CTA -->
-            <div class="text-center bg-secondary/10 dark:bg-secondary/20 rounded-3xl p-12">
-                <h2 class="text-4xl font-bold text-accent dark:text-white mb-4">Create Your Own Memory</h2>
-                <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-                    Every charter is a new adventure waiting to happen. Book your trip today and add your story to our
-                    gallery!
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="dashboard.html"
-                        class="bg-secondary hover:bg-secondary-dark text-white px-10 py-4 rounded-full font-bold shadow-xl shadow-orange-500/20 transition-all uppercase text-sm">
-                        Book Your Adventure
-                    </a>
+                <div class="flex flex-wrap justify-center gap-12 max-w-7xl mx-auto">
+                    <!-- Polaroid 1 -->
+                    <div class="polaroid reveal-view" style="transition-delay: 100ms; --rotation: -3deg">
+                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
+                            <img src="https://i.pravatar.cc/300?img=11" class="w-full h-full object-cover" alt="User">
+                        </div>
+                        <div class="px-2">
+                            <p class="font-bold text-accent text-lg">"First Redfish!"</p>
+                            <p class="text-xs text-slate-400 uppercase font-bold">- Mark D.</p>
+                        </div>
+                    </div>
+                    <!-- Polaroid 2 -->
+                    <div class="polaroid reveal-view" style="transition-delay: 300ms; transform: rotate(4deg)">
+                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
+                            <img src="https://i.pravatar.cc/300?img=20" class="w-full h-full object-cover" alt="User">
+                        </div>
+                        <div class="px-2">
+                            <p class="font-bold text-accent text-lg">"Sunrise Magic"</p>
+                            <p class="text-xs text-slate-400 uppercase font-bold">- Sarah L.</p>
+                        </div>
+                    </div>
+                    <!-- Polaroid 3 -->
+                    <div class="polaroid reveal-view" style="transition-delay: 500ms; transform: rotate(-2deg)">
+                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
+                            <img src="https://i.pravatar.cc/300?img=33" class="w-full h-full object-cover" alt="User">
+                        </div>
+                        <div class="px-2">
+                            <p class="font-bold text-accent text-lg">"The Big One"</p>
+                            <p class="text-xs text-slate-400 uppercase font-bold">- Robert K.</p>
+                        </div>
+                    </div>
+                    <!-- Polaroid 4 -->
+                    <div class="polaroid reveal-view" style="transition-delay: 700ms; transform: rotate(1deg)">
+                        <div class="w-64 aspect-square overflow-hidden mb-4 rounded-sm">
+                            <img src="https://i.pravatar.cc/300?img=45" class="w-full h-full object-cover" alt="User">
+                        </div>
+                        <div class="px-2">
+                            <p class="font-bold text-accent text-lg">"Fleet Shot"</p>
+                            <p class="text-xs text-slate-400 uppercase font-bold">- Jennifer V.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-24 text-center">
                     <a href="contact.html"
-                        class="border-2 border-accent dark:border-white text-accent dark:text-white px-10 py-4 rounded-full font-bold hover:bg-accent hover:text-white dark:hover:bg-white dark:hover:text-accent transition-all uppercase text-sm">
-                        Share Your Photos
-                    </a>
+                        class="inline-block bg-accent dark:bg-white text-white dark:text-accent px-12 py-5 rounded-full font-bold shadow-2xl hover:scale-105 transition-all uppercase tracking-widest text-sm">Submit
+                        your memory</a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer id="main-footer"></footer>
+
     <script src="js/main.js"></script>
+    <script>
+        // Scroll Reveal Implementation
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-view').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 
 </html>

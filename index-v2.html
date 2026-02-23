@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Explorer | OceanBound Fishing Charters</title>
+    <title>Elite Maritime Experience | OceanBound V2</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
@@ -14,7 +14,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/nautical.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <script>
         tailwind.config = {
@@ -37,215 +36,362 @@
                         },
                         aqua: '#14b8a6',
                         coral: '#ef4444',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
         }
     </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-900 overflow-x-hidden">
-    <!-- Ambient Sea Decorations -->
-    <div class="ambient-sea fixed inset-0 pointer-events-none z-0"></div>
-
     <header id="main-header"></header>
 
-    <main class="pt-20">
-        <!-- Split Hero Section -->
-        <section class="min-h-[calc(100vh-80px)] flex flex-col lg:flex-row">
-            <!-- Left: Interactive Map/Dashboard Mockup -->
-            <div class="lg:w-3/5 relative bg-accent overflow-hidden">
-                <div id="map" class="absolute inset-0 z-0"></div>
-                <div class="absolute inset-0 bg-blue-900/10 pointer-events-none z-10"></div>
-                
-                <!-- Gulf Stream Background Image -->
-                <div class="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800" 
-                         alt="Gulf Stream Deep Sea Fishing" 
-                         class="w-full h-full object-cover opacity-30">
-                </div>
-
-                <!-- Map Overlay Stats -->
-                <div class="absolute top-6 left-6 z-20 flex flex-col gap-4">
-                    <div class="glass p-4 rounded-xl text-white shadow-2xl">
-                        <p class="text-xs font-bold uppercase tracking-widest text-blue-300 mb-1">Live Activity</p>
-                        <div class="flex items-center gap-3">
-                            <span class="flex h-3 w-3 relative">
-                                <span
-                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-aqua opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-aqua"></span>
-                            </span>
-                            <span class="text-2xl font-bold font-nautical">8 BOATS ON WATER</span>
-                        </div>
-                    </div>
-                    <div class="glass p-4 rounded-xl text-white shadow-2xl">
-                        <p class="text-xs font-bold uppercase tracking-widest text-blue-300 mb-1">Hot Zone</p>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-fire text-secondary"></i>
-                            <span class="text-xl font-bold uppercase">The Ledge</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Live Feed Ticker -->
+    <main>
+        <!-- Section 1: Zenith Horizon Hero (Centered Cinematic) -->
+        <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
+                    class="w-full h-full object-cover scale-110 animate-[pulse_10s_ease-in-out_infinite]"
+                    alt="Ocean Horizon">
+                <div class="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
                 <div
-                    class="absolute bottom-6 left-6 right-6 z-20 glass p-3 rounded-lg text-white overflow-hidden border border-white/10">
-                    <div class="flex items-center gap-4 whitespace-nowrap animate-marquee">
-                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-aqua"></i> Capt. John
-                            Hooked a 45lb Kingfish!</span>
-                        <span class="text-blue-400">|</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-aqua"></i> Sea Hunter
-                            heading back with full limit!</span>
-                        <span class="text-blue-400">|</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-check-circle text-aqua"></i> 3 Sailfish
-                            releases reported!</span>
-                    </div>
+                    class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/20 to-slate-50 dark:to-slate-900">
                 </div>
             </div>
 
-            <!-- Right: Interactive Booking Form -->
-            <div class="lg:w-2/5 p-8 lg:p-16 flex flex-col justify-center bg-white dark:bg-slate-800 relative">
-                <div class="mb-10">
-                    <h1 class="text-5xl text-accent dark:text-white mb-4">COMMAND YOUR TRIP</h1>
-                    <p class="text-slate-500 dark:text-slate-400">Configure your professional fishing expedition in
-                        real-time.</p>
+            <div class="container mx-auto px-4 z-10 text-center">
+                <div class="inline-block mb-6 animate-float">
+                    <div
+                        class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center text-white shadow-2xl">
+                        <i class="fas fa-anchor text-3xl"></i>
+                    </div>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tighter uppercase">Beyond The <span
+                        class="text-secondary italic">Horizon</span></h1>
+                <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    Experience Florida's most prestigious private fishing expeditions. Modern technology meets ancient
+                    maritime mastery.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="packages.html"
+                        class="bg-primary hover:bg-primary-dark text-white px-10 py-4 rounded-full font-bold shadow-xl transition-all uppercase tracking-widest text-sm">Explore
+                        Fleet</a>
+                    <a href="contact.html"
+                        class="glass-card text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-accent transition-all uppercase tracking-widest text-sm">Secure
+                        Booking</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Tactical Blueprint (Unique High-Tech Showcase) -->
+        <section class="py-40 bg-slate-900 relative overflow-hidden z-10">
+            <!-- Grid Background -->
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: radial-gradient(#0284c7 1px, transparent 1px); background-size: 30px 30px;">
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto text-center mb-24 animate-on-scroll">
+                    <span class="text-secondary font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Fleet
+                        Dynamics</span>
+                    <h2 class="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tighter">THE BLUEPRINT</h2>
                 </div>
 
-                <form class="space-y-8">
-                    <!-- Pricing Calculator Mock -->
-                    <div class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-bold uppercase mb-3 text-slate-400">Selective Gear
-                                Options</label>
-                            <div class="grid grid-cols-2 gap-4">
-                                <button type="button"
-                                    class="p-4 border-2 border-primary bg-primary/5 rounded-xl text-center transition-all">
-                                    <i class="fas fa-ship text-2xl text-primary mb-2"></i>
-                                    <span class="block font-bold dark:text-white">Tournament Boat</span>
-                                </button>
-                                <button type="button"
-                                    class="p-4 border-2 border-slate-200 dark:border-slate-700 rounded-xl text-center hover:border-primary transition-all">
-                                    <i class="fas fa-water text-2xl text-slate-400 mb-2"></i>
-                                    <span class="block font-bold dark:text-white">Skiff / Inshore</span>
-                                </button>
-                            </div>
-                        </div>
+                <div class="relative max-w-5xl mx-auto min-h-[500px] flex items-center justify-center">
+                    <!-- Central Vessel Image -->
+                    <div class="relative z-10 flex justify-center pointer-events-none w-full">
+                        <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1000&q=80"
+                            class="w-full max-w-3xl h-auto object-contain drop-shadow-[0_0_50px_rgba(2,132,199,0.3)] animate-float"
+                            alt="Vessel Blueprint">
+                    </div>
 
-                        <div class="grid grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Anglers</label>
-                                <div
-                                    class="flex items-center justify-between border-2 border-slate-200 dark:border-slate-700 rounded-lg p-2">
-                                    <button type="button"
-                                        class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">-</button>
-                                    <span class="font-bold dark:text-white">4</span>
-                                    <button type="button"
-                                        class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">+</button>
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Duration
-                                    (Hours)</label>
-                                <select
-                                    class="w-full border-2 border-slate-200 dark:border-slate-700 rounded-lg p-3 font-bold bg-transparent dark:text-white">
-                                    <option>4 Hours</option>
-                                    <option>6 Hours</option>
-                                    <option selected>8 Hours</option>
-                                    <option>12 Hours</option>
-                                </select>
-                            </div>
+                    <!-- Tactical Overlays (Desktop only, positioned relative to container) -->
+                    <div class="hidden lg:block absolute inset-0 z-20">
+                        <!-- Stat 1: Power -->
+                        <div class="absolute top-0 -left-16 w-64 glass-card p-6 rounded-3xl border-l-4 border-secondary animate-on-scroll"
+                            style="transition-delay: 200ms">
+                            <h4 class="text-white font-bold uppercase text-xs mb-2 tracking-widest">Power Reserve</h4>
+                            <p class="text-3xl font-bold text-secondary font-nautical">1,200 HP</p>
+                            <p class="text-blue-300 text-[10px] mt-2 italic uppercase">Triple Mercury Verado V8 Array
+                            </p>
                         </div>
-
-                        <div
-                            class="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-slate-500 font-medium">Estimated Expense</span>
-                                <span class="text-3xl font-bold text-primary font-nautical">$850.00</span>
-                            </div>
-                            <p class="text-[10px] text-slate-400 uppercase font-bold text-right">*Fuel & Gear included
+                        <!-- Stat 2: Tracking -->
+                        <div class="absolute bottom-0 -left-16 w-64 glass-card p-6 rounded-3xl border-l-4 border-primary animate-on-scroll"
+                            style="transition-delay: 400ms">
+                            <h4 class="text-white font-bold uppercase text-xs mb-2 tracking-widest">Tactical Sonar</h4>
+                            <p class="text-3xl font-bold text-primary font-nautical">3D SCAN</p>
+                            <p class="text-blue-300 text-[10px] mt-2 italic uppercase">Real-time hydro-acoustic mapping
+                            </p>
+                        </div>
+                        <!-- Stat 3: Capacity -->
+                        <div class="absolute top-0 -right-16 w-64 glass-card p-6 rounded-3xl border-r-4 border-aqua text-right animate-on-scroll"
+                            style="transition-delay: 600ms">
+                            <h4 class="text-white font-bold uppercase text-xs mb-2 tracking-widest">Payload Capacity
+                            </h4>
+                            <p class="text-3xl font-bold text-aqua font-nautical">12 PASS</p>
+                            <p class="text-blue-300 text-[10px] mt-2 italic uppercase">Reinforced hull structural
+                                integrity</p>
+                        </div>
+                        <!-- Stat 4: Range -->
+                        <div class="absolute bottom-0 -right-16 w-64 glass-card p-6 rounded-3xl border-r-4 border-white text-right animate-on-scroll"
+                            style="transition-delay: 800ms">
+                            <h4 class="text-white font-bold uppercase text-xs mb-2 tracking-widest">Cruise Range</h4>
+                            <p class="text-3xl font-bold text-white font-nautical">500 NM</p>
+                            <p class="text-blue-300 text-[10px] mt-2 italic uppercase">Optimized fuel-flow management
                             </p>
                         </div>
                     </div>
+                </div>
 
-                    <button
-                        class="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-5 rounded-2xl shadow-xl shadow-orange-500/20 transform hover:-translate-y-1 transition-all text-xl uppercase tracking-widest">
-                        SECURE EXPEDITION
-                    </button>
-                </form>
-
-                <!-- Seasonal Tips -->
-                <div class="mt-12 p-4 bg-orange-50 dark:bg-orange-950/20 border-l-4 border-orange-400 rounded-r-lg">
-                    <div class="flex gap-4">
-                        <i class="fas fa-info-circle text-orange-400 mt-1"></i>
-                        <div>
-                            <p class="text-sm font-bold text-orange-900 dark:text-orange-200 mb-1">PRO TIP: SEASONAL
-                                PEAK</p>
-                            <p class="text-xs text-orange-800 dark:text-orange-300">Sailfish action is currently
-                                EXPLOSIVE. Book an offshore trip for best results.</p>
-                        </div>
+                <!-- Mobile/Tablet Grid -->
+                <div class="lg:hidden grid grid-cols-2 gap-4 mt-20 max-w-2xl mx-auto mb-10">
+                    <div class="glass-card p-6 rounded-2xl border-l-2 border-secondary">
+                        <p class="text-secondary font-bold font-nautical text-xl">1,200 HP</p>
+                        <p class="text-white text-[10px] uppercase">Power</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-2 border-primary">
+                        <p class="text-primary font-bold font-nautical text-xl">3D SCAN</p>
+                        <p class="text-white text-[10px] uppercase">Sonar</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-2 border-aqua">
+                        <p class="text-aqua font-bold font-nautical text-xl">12 PASS</p>
+                        <p class="text-white text-[10px] uppercase">Crew</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-2 border-white">
+                        <p class="text-white font-bold font-nautical text-xl">500 NM</p>
+                        <p class="text-white text-[10px] uppercase">Range</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Fishing Season Calendar Section -->
-        <section class="py-24 bg-slate-100 dark:bg-slate-900">
-            <div class="container mx-auto px-4">
-                <h2 class="text-5xl text-center mb-16 text-accent dark:text-white">FISH AVAILABILITY MATRIX</h2>
+        <!-- Section 3: The Deep's Bounty (Interactive Species) -->
+        <section class="py-40 bg-accent relative overflow-hidden z-10">
+            <div class="absolute inset-0 opacity-10">
+                <div
+                    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,#fff_1px,transparent_1px)] bg-[size:50px_50px]">
+                </div>
+            </div>
 
-                <div class="overflow-x-auto">
-                    <table
-                        class="w-full border-collapse bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl">
-                        <thead>
-                            <tr class="bg-accent text-white font-nautical uppercase tracking-widest text-sm">
-                                <th class="p-6 text-left">SPECIES</th>
-                                <th class="p-6">JAN</th>
-                                <th class="p-6">FEB</th>
-                                <th class="p-6">MAR</th>
-                                <th class="p-6">APR</th>
-                                <th class="p-6">MAY</th>
-                                <th class="p-6">JUN</th>
-                                <th class="p-6">JUL</th>
-                                <th class="p-6">AUG</th>
-                                <th class="p-6">SEP</th>
-                                <th class="p-6">OCT</th>
-                                <th class="p-6">NOV</th>
-                                <th class="p-6">DEC</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center dark:text-slate-300">
-                            <tr class="border-b dark:border-slate-700">
-                                <td class="p-6 text-left font-bold text-accent dark:text-primary">Sailfish</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                            </tr>
-                            <tr class="border-b dark:border-slate-700">
-                                <td class="p-6 text-left font-bold text-accent dark:text-primary">Mahi Mahi</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6 bg-aqua/20">🔥</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                                <td class="p-6">✔️</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-24 animate-on-scroll">
+                    <h2 class="text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter">Legendary
+                        <span class="text-secondary italic">Quarry</span></h2>
+                    <p class="text-blue-200 max-w-2xl mx-auto text-lg">From the electric speed of the Wahoo to the
+                        stubborn strength of the Goliath, know your targets.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                    <!-- Species 1 -->
+                    <div class="glass-card p-4 rounded-[2.5rem] group animate-on-scroll border border-white/10"
+                        style="transition-delay: 100ms">
+                        <div class="relative overflow-hidden rounded-[2rem] aspect-square mb-6 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?w=600&q=80"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                alt="Mahi">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="px-2 pb-2 text-center">
+                            <h4 class="text-2xl font-bold text-white mb-2 uppercase tracking-wide">Mahi Mahi</h4>
+                            <p class="text-blue-200 text-sm mb-6 leading-relaxed">High-speed surface acrobat and color
+                                prism.</p>
+                            <div class="flex justify-center gap-4 border-t border-white/10 pt-6">
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Fight</span>
+                                    <span class="text-white font-bold font-nautical">LEVEL 4</span>
+                                </div>
+                                <div class="w-px h-8 bg-white/10"></div>
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Depth</span>
+                                    <span class="text-white font-bold font-nautical">SURFACE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Species 2 -->
+                    <div class="glass-card p-4 rounded-[2.5rem] group animate-on-scroll border border-white/10"
+                        style="transition-delay: 200ms">
+                        <div class="relative overflow-hidden rounded-[2rem] aspect-square mb-6 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1544551763-8dd4ef715201?w=600&q=80"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                alt="Wahoo">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="px-2 pb-2 text-center">
+                            <h4 class="text-2xl font-bold text-white mb-2 uppercase tracking-wide">Wahoo</h4>
+                            <p class="text-blue-200 text-sm mb-6 leading-relaxed">The tiger of the ocean with 60mph
+                                speed.</p>
+                            <div class="flex justify-center gap-4 border-t border-white/10 pt-6">
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Speed</span>
+                                    <span class="text-white font-bold font-nautical">EXPERT</span>
+                                </div>
+                                <div class="w-px h-8 bg-white/10"></div>
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Rarity</span>
+                                    <span class="text-white font-bold font-nautical">SHARP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Species 3 -->
+                    <div class="glass-card p-4 rounded-[2.5rem] group animate-on-scroll border border-white/10"
+                        style="transition-delay: 300ms">
+                        <div class="relative overflow-hidden rounded-[2rem] aspect-square mb-6 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1505506005708-f9e025965506?w=600&q=80"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                alt="Sailfish">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="px-2 pb-2 text-center">
+                            <h4 class="text-2xl font-bold text-white mb-2 uppercase tracking-wide">Sailfish</h4>
+                            <p class="text-blue-200 text-sm mb-6 leading-relaxed">Master of the Stream. A trophy prize.
+                            </p>
+                            <div class="flex justify-center gap-4 border-t border-white/10 pt-6">
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Skill</span>
+                                    <span class="text-white font-bold font-nautical">PRO</span>
+                                </div>
+                                <div class="w-px h-8 bg-white/10"></div>
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Action</span>
+                                    <span class="text-white font-bold font-nautical">FLY</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Species 4 -->
+                    <div class="glass-card p-4 rounded-[2.5rem] group animate-on-scroll border border-white/10"
+                        style="transition-delay: 400ms">
+                        <div class="relative overflow-hidden rounded-[2rem] aspect-square mb-6 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=600&q=80"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                alt="Tarpon">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="px-2 pb-2 text-center">
+                            <h4 class="text-2xl font-bold text-white mb-2 uppercase tracking-wide">Tarpon</h4>
+                            <p class="text-blue-200 text-sm mb-6 leading-relaxed">The Silver King. Unmatched stamina.
+                            </p>
+                            <div class="flex justify-center gap-4 border-t border-white/10 pt-6">
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Stamina</span>
+                                    <span class="text-white font-bold font-nautical">HIGH</span>
+                                </div>
+                                <div class="w-px h-8 bg-white/10"></div>
+                                <div class="text-center">
+                                    <span
+                                        class="block text-[10px] text-blue-400 uppercase font-bold tracking-widest mb-1">Habitat</span>
+                                    <span class="text-white font-bold font-nautical">ACE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        </section>
+
+        <!-- Section 4: Maritime Chronicles (Cinematic Story) -->
+        <section class="relative py-48 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1498623116890-37e912163d5d?w=1920&q=80"
+                    class="w-full h-full object-cover brightness-50" alt="Night Sea">
+                <div class="absolute inset-0 bg-blue-900/60 mix-blend-multiply"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10 text-center animate-on-scroll">
+                <div
+                    class="w-24 h-24 border-2 border-secondary/50 rounded-full mx-auto mb-12 flex items-center justify-center">
+                    <i class="fas fa-play text-white text-2xl animate-pulse"></i>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-bold text-white mb-8 uppercase tracking-tighter">Every Wave <br>Has
+                    A <span class="text-secondary">Story</span></h2>
+                <p class="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto font-light mb-12 italic leading-relaxed">
+                    "It wasn't just about the 120lb Tarpon. It was the moment the moonlight hit the silver scales as it
+                    breached. That's why we do this."
+                </p>
+                <div class="flex items-center justify-center gap-6">
+                    <img src="https://i.pravatar.cc/100?img=12" class="w-16 h-16 rounded-full border-2 border-secondary"
+                        alt="Capt">
+                    <div class="text-left">
+                        <p class="text-white font-bold uppercase tracking-widest">Captain John Vance</p>
+                        <p class="text-secondary text-sm">25 Years at Helm</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: The Horizon's Call (Minimal CTA) -->
+        <section class="py-32 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="container mx-auto px-4">
+                <div
+                    class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-16 rounded-[4rem] shadow-4xl text-center border border-slate-100 dark:border-slate-700 relative overflow-hidden animate-on-scroll">
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-48 h-48 bg-secondary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2">
+                    </div>
+
+                    <div class="relative z-10">
+                        <span class="text-secondary font-bold tracking-widest uppercase text-xs mb-6 block">Ready for
+                            Departure?</span>
+                        <h2
+                            class="text-5xl md:text-6xl font-bold text-accent dark:text-white mb-10 uppercase tracking-tighter">
+                            Your Terminal <span class="text-primary italic">Awaits</span></h2>
+                        <p class="text-slate-500 dark:text-slate-400 mb-12 max-w-xl mx-auto text-lg leading-relaxed">
+                            Stop watching the horizon and start dominating it. Limited seasonal slots available for
+                            professional expeditions.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                            <a href="dashboard.html"
+                                class="bg-accent hover:bg-black text-white px-12 py-5 rounded-full font-bold shadow-2xl transition-all uppercase tracking-widest">Reserve
+                                Berth</a>
+                            <a href="contact.html"
+                                class="border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white px-12 py-5 rounded-full font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all uppercase tracking-widest">Inquiry</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -253,43 +399,30 @@
 
     <footer id="main-footer"></footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Init Map
-        const map = L.map('map', {
-            center: [26.9342, -80.0942],
-            zoom: 11,
-            zoomControl: false,
-            attributionControl: false
-        });
+        // Scroll Reveal Implementation
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
 
-        const markers = [
-            { pos: [26.942, -80.05], name: 'Sailfish Alley', icon: 'fas fa-fish' },
-            { pos: [26.96, -80.1], name: 'The Treasure Coast', icon: 'fas fa-anchor' }
-        ];
-
-        markers.forEach(m => {
-            L.marker(m.pos).addTo(map).bindPopup(m.name);
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                el.classList.add('reveal-up');
+                observer.observe(el);
+            });
         });
     </script>
-    <style>
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .animate-marquee {
-            animation: marquee 20s linear infinite;
-        }
-    </style>
 </body>
 
 </html>
