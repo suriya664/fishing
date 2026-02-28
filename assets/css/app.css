@@ -2687,6 +2687,17 @@ html:not(.dark) :is(button, a)[class*='border']:not([class*='bg-']):hover {
   background: rgba(14, 42, 58, 0.14) !important;
 }
 
+html:not(.dark) #logout-btn {
+  background: rgba(14, 42, 58, 0.08) !important;
+  color: var(--ocean-text) !important;
+  border-color: rgba(14, 42, 58, 0.35) !important;
+}
+
+html:not(.dark) #logout-btn:hover {
+  background: rgba(14, 42, 58, 0.14) !important;
+  color: var(--ocean-text) !important;
+}
+
 /* Inputs and forms */
 html:not(.dark) :is(input, select, textarea) {
   background: var(--ocean-surface-strong) !important;
