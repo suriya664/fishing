@@ -31,13 +31,12 @@
     const subtitle = section.querySelector('.hv2-hero-subtitle');
     const kicker = section.querySelector('.hv2-hero-kicker');
     const copy = document.getElementById('hv2-hero-copy');
-    const box = document.getElementById('hv2-floating-box');
     const diagonal = document.getElementById('hv2-diagonal-layer');
     const bg = document.getElementById('hv2-hero-bg');
     const depthA = document.getElementById('hv2-depth-a');
     const depthB = document.getElementById('hv2-depth-b');
 
-    if (!title || !subtitle || !kicker || !copy || !box || !diagonal || !bg || !depthA || !depthB) {
+    if (!title || !subtitle || !kicker || !copy || !diagonal || !bg || !depthA || !depthB) {
       return;
     }
 
@@ -61,21 +60,7 @@
         { y: 0, opacity: 1, duration: 0.56, ease: 'power2.out' },
         0.5
       )
-      .fromTo(
-        box,
-        { y: 36, opacity: 0, rotate: -4 },
-        { y: 0, opacity: 1, rotate: 0, duration: 0.85, ease: 'power3.out' },
-        0.36
-      );
 
-    gsap.to(box, {
-      rotate: 2.2,
-      y: -10,
-      duration: 4.6,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true
-    });
 
     gsap.to(diagonal, {
       xPercent: 10,

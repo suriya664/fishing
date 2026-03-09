@@ -228,10 +228,9 @@
       return;
     }
 
-    const track = section.querySelector('.gallery-film-track');
     const frames = Array.from(section.querySelectorAll('[data-film-frame]'));
 
-    if (!track || !frames.length) {
+    if (!frames.length) {
       return;
     }
 
@@ -250,38 +249,6 @@
         }
       }
     );
-
-    function setFocusByCenter() {
-      const center = track.scrollLeft + track.clientWidth / 2;
-      let nearest = frames[0];
-      let nearestDist = Number.POSITIVE_INFINITY;
-
-      frames.forEach((frame) => {
-        const frameCenter = frame.offsetLeft + frame.offsetWidth / 2;
-        const dist = Math.abs(frameCenter - center);
-        if (dist < nearestDist) {
-          nearest = frame;
-          nearestDist = dist;
-        }
-      });
-
-      frames.forEach((frame) => frame.classList.remove('is-focus'));
-      nearest.classList.add('is-focus');
-    }
-
-    let rafId = null;
-    track.addEventListener('scroll', () => {
-      if (rafId) {
-        return;
-      }
-      rafId = window.requestAnimationFrame(() => {
-        setFocusByCenter();
-        rafId = null;
-      });
-    });
-
-    window.addEventListener('resize', setFocusByCenter);
-    setTimeout(setFocusByCenter, 120);
   }
 
   function init() {
